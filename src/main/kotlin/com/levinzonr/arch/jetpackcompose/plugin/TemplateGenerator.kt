@@ -1,4 +1,4 @@
-package com.levinzonr.jetpackcompose.arch
+package com.levinzonr.arch.jetpackcompose.plugin
 
 import com.intellij.ide.fileTemplates.FileTemplateManager
 import com.intellij.ide.fileTemplates.FileTemplateUtil
