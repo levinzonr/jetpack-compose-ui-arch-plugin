@@ -4,6 +4,8 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.psi.PsiDirectory
+import com.levinzonr.jetpackcompose.arch.ComposeArchDialog
+import com.levinzonr.jetpackcompose.arch.TemplateGenerator
 
 class ComposeArchAction: AnAction() {
 
@@ -11,7 +13,7 @@ class ComposeArchAction: AnAction() {
         val generator = TemplateGenerator(e.project!!)
         val directory = e.getData(CommonDataKeys.PSI_ELEMENT) as PsiDirectory
         ComposeArchDialog(e.project!!).show { name ->
-            val properties = mutableMapOf("NAME" to name)
+            val properties = mutableMapOf(PropertyKeys.Name to name)
             generator.generateKt("ComposeContract", "${name}Contract", directory, properties)
             generator.generateKt("ComposeScreen", "${name}Screen", directory, properties)
             generator.generateKt("ComposeViewModel", "${name}ViewModel", directory, properties)

@@ -10,7 +10,15 @@ import javax.swing.JComponent
 import javax.swing.event.DocumentEvent
 import javax.swing.event.DocumentListener
 
-class ComposeArchDialog(project: Project) : DialogWrapper(project, null, true, IdeModalityType.MODELESS, false) {
+class ComposeArchDialog(
+    project: Project
+) : DialogWrapper(
+    project,
+    null,
+    true,
+    IdeModalityType.MODELESS,
+    false
+) {
     init { init() }
 
     var name: String = "Heello"
