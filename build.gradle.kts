@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 fun properties(key: String) = project.findProperty(key).toString()
 
+val pluginVersion get() = properties("pluginVersion")
+
 plugins {
     // Java support
     id("java")
@@ -17,7 +19,7 @@ plugins {
 }
 
 group = properties("pluginGroup")
-version = properties("pluginVersion")
+version = pluginVersion
 
 // Configure project's dependencies
 repositories {
@@ -40,14 +42,6 @@ changelog {
     groups.set(emptyList())
 }
 
-// Configure Gradle Qodana Plugin - read more: https://github.com/JetBrains/gradle-qodana-plugin
-qodana {
-    cachePath.set(projectDir.resolve(".qodana").canonicalPath)
-    reportPath.set(projectDir.resolve("build/reports/inspections").canonicalPath)
-    saveReport.set(true)
-    showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
-}
-
 tasks {
     // Set the JVM compatibility versions
     properties("javaVersion").let {
@@ -65,7 +59,7 @@ tasks {
     }
 
     patchPluginXml {
-        version.set(properties("pluginVersion"))
+        version.set(pluginVersion)
         sinceBuild.set(properties("pluginSinceBuild"))
         untilBuild.set(properties("pluginUntilBuild"))
 
@@ -85,18 +79,9 @@ tasks {
         // Get the latest available change notes from the changelog file
         changeNotes.set(provider {
             changelog.run {
-                getOrNull(properties("pluginVersion")) ?: getLatest()
+                getOrNull(pluginVersion) ?: getLatest()
             }.toHTML()
         })
-    }
-
-    // Configure UI tests plugin
-    // Read more: https://github.com/JetBrains/intellij-ui-test-robot
-    runIdeForUiTests {
-        systemProperty("robot-server.port", "8082")
-        systemProperty("ide.mac.message.dialogs.as.sheets", "false")
-        systemProperty("jb.privacy.policy.text", "<!--999.999-->")
-        systemProperty("jb.consents.confirmation.enabled", "false")
     }
 
     signPlugin {
@@ -108,9 +93,5 @@ tasks {
     publishPlugin {
         dependsOn("patchChangelog")
         token.set(System.getenv("PUBLISH_TOKEN"))
-        // pluginVersion is based on the SemVer (https://semver.org) and supports pre-release labels, like 2.1.7-alpha.3
-        // Specify pre-release label to publish the plugin in a custom Release Channel automatically. Read more:
-        // https://plugins.jetbrains.com/docs/intellij/deployment.html#specifying-a-release-channel
-        channels.set(listOf(properties("pluginVersion").split('-').getOrElse(1) { "default" }.split('.').first()))
     }
 }
