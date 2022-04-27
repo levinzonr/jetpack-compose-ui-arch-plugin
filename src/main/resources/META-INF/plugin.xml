@@ -5,7 +5,7 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Jetpack ComposeCompose Architecture Templates</name>
+    <name>Jetpack Compose UI Architecture Templates</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="levinzon.roman@gmail.com" url="https://github.com/levinzonr/jetpack-compose-ui-arch-plugin/actions">Roman Levinzon
