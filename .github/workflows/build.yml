@@ -152,9 +152,3 @@ jobs:
           ${{ needs.build.outputs.changelog }}
           EOM
           )"
-
-      # Upload artifact as a release asset
-      - name: Upload Release Asset
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ needs.build.outputs.version }} ./build/distributions/*
