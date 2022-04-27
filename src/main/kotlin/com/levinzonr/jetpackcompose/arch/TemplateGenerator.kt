@@ -18,7 +18,7 @@ class TemplateGenerator(private val project: Project) {
         val manager = FileTemplateManager.getInstance(project)
         val template = manager.getInternalTemplate(templateName)
 
-        properties["PACKAGE_NAME"] = requireNotNull(directory.getPackageName())
+        properties[PropertyKeys.PackageName] = requireNotNull(directory.getPackageName())
         FileTemplateUtil.createFromTemplate(
             template,
             "${fileName}.kt",
