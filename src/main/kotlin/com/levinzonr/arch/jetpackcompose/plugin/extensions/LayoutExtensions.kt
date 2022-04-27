@@ -1,4 +1,4 @@
-package com.levinzonr.jetpackcompose.arch.extensions
+package com.levinzonr.arch.jetpackcompose.plugin.extensions
 
 import com.intellij.ui.components.JBTextField
 import com.intellij.ui.layout.CellBuilder

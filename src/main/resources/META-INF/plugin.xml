@@ -33,7 +33,7 @@
                 text="Jetpack Compose UI Arch Files"
                 icon="/icons/action_logo.svg"
                 description="Creates compose architecture files"
-                class="com.levinzonr.jetpackcompose.arch.ComposeArchAction">
+                class="com.levinzonr.arch.jetpackcompose.plugin.ComposeArchAction">
             <add-to-group group-id="NewGroup" anchor="first" />
         </action>
 

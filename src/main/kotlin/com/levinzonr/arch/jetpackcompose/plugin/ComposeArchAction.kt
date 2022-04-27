@@ -1,11 +1,11 @@
-package com.levinzonr.jetpackcompose.arch
+package com.levinzonr.arch.jetpackcompose.plugin
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.psi.PsiDirectory
-import com.levinzonr.jetpackcompose.arch.ui.ComposeArchDialog
-import com.levinzonr.jetpackcompose.arch.ui.ComposeArchDialogViewModel
+import com.levinzonr.arch.jetpackcompose.plugin.ui.ComposeArchDialog
+import com.levinzonr.arch.jetpackcompose.plugin.ui.ComposeArchDialogViewModel
 
 class ComposeArchAction: AnAction() {
 

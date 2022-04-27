@@ -1,11 +1,8 @@
-package com.levinzonr.jetpackcompose.arch.ui
+package com.levinzonr.arch.jetpackcompose.plugin.ui
 
-import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.layout.panel
-import com.intellij.ui.layout.withTextBinding
-import com.levinzonr.jetpackcompose.arch.extensions.textField
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
