@@ -8,8 +8,7 @@
     <name>Jetpack Compose UI Architecture Templates</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="levinzon.roman@gmail.com" url="https://github.com/levinzonr/jetpack-compose-ui-arch-plugin/actions">Roman Levinzon
-    </vendor>
+    <vendor email="levinzon.roman@gmail.com" url="https://github.com/levinzonr">Roman Levinzon</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
