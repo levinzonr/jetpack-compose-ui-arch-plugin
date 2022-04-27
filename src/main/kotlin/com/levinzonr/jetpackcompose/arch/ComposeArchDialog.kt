@@ -2,13 +2,9 @@ package com.levinzonr.jetpackcompose.arch
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
-import com.intellij.ui.components.JBTextField
-import com.intellij.ui.layout.CellBuilder
-import com.intellij.ui.layout.Row
 import com.intellij.ui.layout.panel
+import com.levinzonr.jetpackcompose.arch.extensions.textField
 import javax.swing.JComponent
-import javax.swing.event.DocumentEvent
-import javax.swing.event.DocumentListener
 
 class ComposeArchDialog(
     project: Project
@@ -38,25 +34,7 @@ class ComposeArchDialog(
         }
     }
 
-    private fun Row.textField(onChange: (String) -> Unit): CellBuilder<JBTextField> {
-        return textField({ "" }, { }).also {
-            it.component.let { component ->
-                component.document.addDocumentListener(object : DocumentListener {
-                    override fun insertUpdate(e: DocumentEvent?) {
-                        onChange.invoke(component.text)
-                    }
 
-                    override fun removeUpdate(e: DocumentEvent?) {
-                        onChange.invoke(component.text)
-
-                    }
-
-                    override fun changedUpdate(e: DocumentEvent?) {
-                        onChange.invoke(component.text) }
-                })
-            }
-        }
-    }
 
 
     fun show(onOk: (String) -> Unit) {
