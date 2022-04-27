@@ -2,3 +2,6 @@
 .idea
 .qodana
 build
+local.properties
+chain.crt
+private.pem
