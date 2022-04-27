@@ -1,0 +1,22 @@
+package $PACKAGE_NAME
+
+import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
+
+@Composable
+fun ${NAME}Coordinator(
+    viewModel: ${NAME}ViewModel = hiltViewModel()
+) {
+ // State observing and declarations
+ // val state = viewModel.stateFlow().collectAsState()
+ 
+ 
+ // UI Actions
+ val actions = remember${NAME}Actions()
+ 
+ 
+ // UI Rendering
+ Provide${NAME}Actions(actions) {
+    ${NAME}Screen()
+ }
+}
