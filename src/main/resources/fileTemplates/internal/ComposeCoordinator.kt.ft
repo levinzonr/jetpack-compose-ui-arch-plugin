@@ -1,22 +1,41 @@
-package $PACKAGE_NAME
+package ${PACKAGE_NAME}
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+
 
 @Composable
 fun ${NAME}Coordinator(
     viewModel: ${NAME}ViewModel = hiltViewModel()
 ) {
- // State observing and declarations
- // val state = viewModel.stateFlow().collectAsState()
- 
- 
- // UI Actions
- val actions = remember${NAME}Actions()
- 
- 
- // UI Rendering
- Provide${NAME}Actions(actions) {
-    ${NAME}Screen()
- }
+    // State observing and declarations
+    val state by viewModel.stateFlow.collectAsState(initial = ${NAME}State())
+    
+    // Events Handling
+    LaunchedEffect(key1 = Unit) {
+        viewModel.eventFlow
+            .onEach { /* Handle Events */ }
+            .launchIn(this)
+    }
+    
+    // UI Actions
+    val actions = remember${NAME}Actions()
+    
+
+    // UI Rendering
+    Provide${NAME}Actions(actions) {
+        ${NAME}Screen(state, actions)
+    }
+}
+
+
+@Composable
+fun remember${NAME}Actions(): ${NAME}Actions {
+    return remember { ${NAME}Actions() }
 }
