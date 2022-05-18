@@ -27,14 +27,34 @@
 
 
     <actions>
-        <action
-                id="ComposeArch.New"
-                text="Jetpack Compose UI Arch Files"
-                icon="/icons/action_logo.svg"
-                description="Creates compose architecture files"
-                class="com.levinzonr.arch.jetpackcompose.plugin.ComposeArchAction">
-            <add-to-group group-id="NewGroup" anchor="first" />
-        </action>
+
+
+        <group id="JetpackComposeUIGroup" text="Group">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+
+            <group id="NodesPlugin.NewMenu.Arch"
+                   popup="true"
+                   icon="/icons/icon_small.svg"
+                   text="Jetpack Compose UI Arch"
+                   description="Jetpack Compose UI Arch Menu">
+                <action
+                        id="ComposeArch.New"
+                        text="New Feature"
+                        icon="/icons/action_logo.svg"
+                        description="Creates compose architecture files"
+                        class="com.levinzonr.arch.jetpackcompose.plugin.ComposeArchAction"/>
+                <action
+                        id="ComposeArch.NewComponent"
+                        text="New UI Component"
+                        icon="/icons/action_logo.svg"
+                        description="Creates compose architecture files"
+                        class="com.levinzonr.arch.jetpackcompose.plugin.ComposeComponentAction"/>
+                <add-to-group group-id="JetpackComposeUIGroup" anchor="first"/>
+            </group>
+
+
+        </group>
+
 
     </actions>
 
