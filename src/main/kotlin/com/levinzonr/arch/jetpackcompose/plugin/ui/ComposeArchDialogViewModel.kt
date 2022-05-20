@@ -17,10 +17,12 @@ class ComposeArchDialogViewModel(
 
     fun onOkButtonClick() {
         val properties = mutableMapOf(PropertyKeys.Name to name)
-        generator.generateKt("ComposeContract", "${name}Contract", directory, properties)
-        generator.generateKt("ComposeScreen", "${name}Screen", directory, properties)
-        generator.generateKt("ComposeViewModel", "${name}ViewModel", directory, properties)
-        generator.generateKt("ComposeCoordinator", "${name}Coordinator", directory, properties)
+        val featPackage = directory.createSubdirectory(name.lowercase())
+        generator.generateKt("ComposeContract", "${name}Contract", featPackage, properties)
+        generator.generateKt("ComposeScreen", "${name}Screen", featPackage, properties)
+        generator.generateKt("ComposeViewModel", "${name}ViewModel", featPackage, properties)
+        generator.generateKt("ComposeCoordinator", "${name}Coordinator", featPackage, properties)
+        featPackage.createSubdirectory("components")
         scope.launch { successFlow.emit(Unit) }
     }
 
