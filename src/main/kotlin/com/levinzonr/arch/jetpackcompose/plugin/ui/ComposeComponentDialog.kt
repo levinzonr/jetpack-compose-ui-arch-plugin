@@ -23,6 +23,7 @@ class ComposeComponentDialog(
         return panel {
             row { label("New Jetpack Compose UI Component") }
             row { textField(viewModel::name).focused() }
+            noteRow("Creates a new Composable Component and its Preview based on the name given")
         }
     }
 

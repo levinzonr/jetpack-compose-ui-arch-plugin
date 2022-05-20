@@ -26,6 +26,8 @@ class ComposeArchDialog(
         return panel {
             row { label("New Jetpack Compose Feature") }
             row { textField(viewModel::name).focused() }
+            noteRow("Creates a set of files for the new Feature.\n" +
+                    " All files will be placed in the package with the same name as the feature")
         }
     }
 
