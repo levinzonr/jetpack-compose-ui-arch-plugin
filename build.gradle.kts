@@ -41,6 +41,13 @@ changelog {
     groups.set(emptyList())
 }
 
+dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.1")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.21")
+
+
+}
+
 tasks {
     // Set the JVM compatibility versions
     properties("javaVersion").let {
