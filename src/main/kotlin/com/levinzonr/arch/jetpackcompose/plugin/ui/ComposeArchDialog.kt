@@ -3,39 +3,33 @@ package com.levinzonr.arch.jetpackcompose.plugin.ui
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.layout.panel
+import com.levinzonr.arch.jetpackcompose.plugin.base.BaseDialog
+import com.levinzonr.arch.jetpackcompose.plugin.dependencies.Dependencies
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.swing.JComponent
 
 class ComposeArchDialog(
-    private val viewModel: ComposeArchDialogViewModel
-) : DialogWrapper(true) {
-
-    private val scope = CoroutineScope(Dispatchers.Main)
-    private lateinit var panel: DialogPanel
+        private val viewModel: ComposeArchDialogViewModel,
+) : BaseDialog() {
 
     init {
         init()
-        viewModel.successFlow
-            .onEach { close(0) }
-            .launchIn(scope)
-
+        viewModel
+                .successFlow
+                .onEach { close(0) }
+                .launchIn(dialogScope)
     }
 
-
-    override fun createCenterPanel(): JComponent {
-        panel = panel {
+    override fun createPanel(): DialogPanel {
+        return panel {
             row { label("New Jetpack Compose Feature") }
             row { textField(viewModel::name).focused() }
         }
-
-        return panel
     }
 
     override fun doOKAction() {
-        super.doOKAction()
         panel.apply()
         viewModel.onOkButtonClick()
     }

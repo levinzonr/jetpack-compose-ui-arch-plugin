@@ -3,17 +3,17 @@ package com.levinzonr.arch.jetpackcompose.plugin.ui
 import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.TemplateGenerator
+import com.levinzonr.arch.jetpackcompose.plugin.base.BaseViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
 
 class ComposeArchDialogViewModel(
     private val generator: TemplateGenerator,
     private val directory: PsiDirectory,
-) {
+) : BaseViewModel() {
     var name: String = ""
+        get() = field.capitalize()
     val successFlow = MutableSharedFlow<Unit>()
-    private val scope = CoroutineScope(Dispatchers.Main)
-
 
     fun onOkButtonClick() {
         val properties = mutableMapOf(PropertyKeys.Name to name)
