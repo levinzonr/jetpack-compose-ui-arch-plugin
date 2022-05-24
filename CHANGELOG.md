@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.0.1-alpha05]
+### Fixed
+- Fix Contract Template generation
+
 ## [0.0.1-alpha04]
 ### Added
 - New action to create UI Component

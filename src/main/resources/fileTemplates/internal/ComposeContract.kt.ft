@@ -1,16 +1,38 @@
 package ${PACKAGE_NAME}
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
+
+
+/**
+ * UI State that represents ${NAME}Screen
+**/
+class ${NAME}State
+
+/**
+ * ${NAME} events emitted from the ViewModel and handled in the UI layer
+ * i.e ViewModel -> Coordinator
+**/
+sealed interface ${NAME}Event
+
+/**
+ * ${NAME} Actions emitted from the UI Layer
+ * passed to the coordinator to handle
+**/
+data class ${NAME}Actions(
+    val onClick: () -> Unit = {}
+)
+
+/**
+ * Compose Utility to retrieve actions from nested components
+**/
+val Local${NAME}Actions = staticCompositionLocalOf { ${NAME}Actions() }
 
 @Composable
-fun ${NAME}() {
-    Text(text = "${NAME}")
+fun Provide${NAME}Actions(actions: ${NAME}Actions, content: @Composable () -> Unit) {
+    CompositionLocalProvider(Local${NAME}Actions provides actions) {
+        content.invoke()
+    }
 }
 
-@Preview(name = "${NAME}")
-@Composable
-private fun Preview${NAME}Component() {
-    ${NAME}()
-}
