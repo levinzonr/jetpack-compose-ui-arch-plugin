@@ -16,13 +16,13 @@ class ${NAME}ViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _eventFlow: MutableSharedFlow<${NAME}Event> = MutableSharedFlow()
-    private val _stateFlow: MutableSharedFlow<${NAME}State> = MutableStateFlow(${NAME}State())
+    private val _stateFlow: MutableStateFlow<${NAME}State> = MutableStateFlow(${NAME}State())
   
       val stateFlow: Flow<${NAME}State> = _stateFlow
       val eventFlow: Flow<${NAME}Event> = _eventFlow
   
   
-      fun postEvent(event: ${NAME}Event) {
+      private fun postEvent(event: ${NAME}Event) {
           viewModelScope.launch {
               _eventFlow.emit(event)
           }

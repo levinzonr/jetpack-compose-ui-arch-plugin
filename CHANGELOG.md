@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.0.1-alpha06]
+### Fixed
+- Replace `MutableSharedFlow` with `MutableStateFlow` in `ViewModel`
+
 ## [0.0.1-alpha05]
 ### Fixed
 - Fix Contract Template generation
