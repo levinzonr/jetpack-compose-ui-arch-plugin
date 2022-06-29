@@ -11,12 +11,6 @@ import androidx.compose.runtime.staticCompositionLocalOf
 class ${NAME}State
 
 /**
- * ${NAME} events emitted from the ViewModel and handled in the UI layer
- * i.e ViewModel -> Coordinator
-**/
-sealed interface ${NAME}Event
-
-/**
  * ${NAME} Actions emitted from the UI Layer
  * passed to the coordinator to handle
 **/
