@@ -1,0 +1,29 @@
+package $PACKAGE_NAME
+
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.hilt.navigation.compose.hiltViewModel
+
+/**
+ * Coordinator state that handles UI interactions such as navigation or one-shot ui actions
+ */
+class ${NAME}CoordinatorState(
+    val viewModel: ${NAME}ViewModel
+) {
+    val screenStateFlow = viewModel.stateFlow
+
+    fun doStuff() {
+        
+    }
+}
+
+@Composable
+fun remember${NAME}CoordinatorState(
+    viewModel: ${NAME}ViewModel = hiltViewModel()
+) : ${NAME}CoordinatorState {
+    return remember(viewModel) {
+        ${NAME}CoordinatorState(
+            viewModel = viewModel
+        )
+    }
+}
