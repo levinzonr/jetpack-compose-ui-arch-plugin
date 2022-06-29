@@ -3,6 +3,14 @@
 # Jetpack Compose UI Architecture IDE plugin  Changelog
 
 ## [Unreleased]
+## [0.0.1-alpha07]
+### Added
+- Generate new [Feat]CoordinatorState component
+- Add support for the latest IDEs builds
+- Made feature package generation optional - controlled by the checkbox
+
+### Changed
+- Remove UIEvents posted from the ViewModel and LaunchedEffect in coordinator that used to handle it
 
 ## [0.0.1-alpha06]
 ### Fixed
