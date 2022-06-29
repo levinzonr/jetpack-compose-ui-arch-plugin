@@ -16,17 +16,9 @@ fun ${NAME}Coordinator(
 ) {
     // State observing and declarations
     val state by viewModel.stateFlow.collectAsState(initial = ${NAME}State())
-    
-    // Events Handling
-    LaunchedEffect(key1 = Unit) {
-        viewModel.eventFlow
-            .onEach { /* Handle Events */ }
-            .launchIn(this)
-    }
-    
+
     // UI Actions
     val actions = remember${NAME}Actions()
-    
 
     // UI Rendering
     Provide${NAME}Actions(actions) {
