@@ -4,7 +4,7 @@
 
 ## [Unreleased]
 ## [0.0.1-alpha08]
-### Added
+### Changed
 - Default Actions in the Composition Local is now set to Error to avoid having multiple sources of truth
 - Use asStateFlow in the ViewModel. This will ensure the consumer of the flow wont be able to mutate it outside the ViewModel
 
