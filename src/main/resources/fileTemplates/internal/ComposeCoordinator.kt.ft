@@ -25,7 +25,7 @@ fun ${NAME}Coordinator(
 
 @Composable
 fun remember${NAME}Actions(state: ${NAME}CoordinatorState): ${NAME}Actions {
-    return remember {
+    return remember(state) {
         ${NAME}Actions(
             onClick = state::doStuff
         )
