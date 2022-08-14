@@ -20,8 +20,10 @@ data class ${NAME}Actions(
 
 /**
  * Compose Utility to retrieve actions from nested components
-**/
-val Local${NAME}Actions = staticCompositionLocalOf { ${NAME}Actions() }
+ **/
+val Local${NAME}Actions = staticCompositionLocalOf<${NAME}Actions> {
+    error("{NAME} Actions Were not provided, make sure Provide${NAME}Actions is called")
+}
 
 @Composable
 fun Provide${NAME}Actions(actions: ${NAME}Actions, content: @Composable () -> Unit) {
