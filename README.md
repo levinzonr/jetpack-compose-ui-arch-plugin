@@ -9,9 +9,9 @@
 This dialog allows you to create several files related to Jetpack Compose UI Architecture. After you provide a name for your feature, plugin will generate following:
 - `[featname]` - package (lowercased) (optional)
   - `[FeatName]Contract` - contains UIState, Actions emitted from the UI layer
-  - `[FeatName]Screen` - Basic UI of your Screen
-  - `[FeatName]CoordinatorState` - Main State holder of the Screen, controls the screen UI logic and Interactions
-  - `[FeatName]Coordinator` - Tied to coordinator state, handles Actions using CoordinatorState and emits Root UI
+  - `[FeatName]Screen` - Basic, stateless, UI of your Screen
+  - `[FeatName]Coordinator` - Main State holder of the Screen, controls the screen UI logic and Interactions
+  - `[FeatName]Route` - Main entry point, tied to `Coordinator` and delegates all the Actions to it, Emits Screen
   - `[FeatName]ViewModel` - basic implementation of your viewModel
 
 ## New Component Dialog

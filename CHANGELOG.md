@@ -3,6 +3,13 @@
 # Jetpack Compose UI Architecture IDE plugin  Changelog
 
 ## [Unreleased]
+
+## [0.0.1-beta01]
+### Changed
+- `Coordinator` is now renamed to  `Route` and what is used to be called `CoordinatorState` is now called `Coordinator`. 
+These new names are more self-explanatory and shorter :)
+
+
 ## [0.0.1-alpha08]
 ### Changed
 - Default Actions in the Composition Local is now set to Error to avoid having multiple sources of truth
