@@ -24,7 +24,7 @@ class ComposeArchDialogViewModel(
         generator.generateKt("ComposeScreen", "${name}Screen", featPackage, properties)
         generator.generateKt("ComposeViewModel", "${name}ViewModel", featPackage, properties)
         generator.generateKt("ComposeCoordinator", "${name}Coordinator", featPackage, properties)
-        generator.generateKt("ComposeCoordinatorState", "${name}CoordinatorState", featPackage, properties)
+        generator.generateKt("ComposeRoute", "${name}Route", featPackage, properties)
         featPackage.createSubdirectory("components")
         scope.launch { successFlow.emit(Unit) }
     }

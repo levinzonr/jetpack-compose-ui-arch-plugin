@@ -7,7 +7,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 /**
  * Coordinator state that handles UI interactions such as navigation or one-shot ui actions
  */
-class ${NAME}CoordinatorState(
+class ${NAME}Coordinator(
     val viewModel: ${NAME}ViewModel
 ) {
     val screenStateFlow = viewModel.stateFlow
@@ -18,11 +18,11 @@ class ${NAME}CoordinatorState(
 }
 
 @Composable
-fun remember${NAME}CoordinatorState(
+fun remember${NAME}Coordinator(
     viewModel: ${NAME}ViewModel = hiltViewModel()
-) : ${NAME}CoordinatorState {
+) : ${NAME}Coordinator {
     return remember(viewModel) {
-        ${NAME}CoordinatorState(
+        ${NAME}Coordinator(
             viewModel = viewModel
         )
     }

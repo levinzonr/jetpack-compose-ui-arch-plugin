@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 
 @Composable
 fun ${NAME}Route(
-    state: ${NAME}CoordinatorState = remember${NAME}CoordinatorState()
+    coordinator: ${NAME}Coordinator = remember${NAME}Coordinator()
 ) {
     // State observing and declarations
     val uiState by state.screenStateFlow.collectAsState(initial = ${NAME}State())
@@ -24,10 +24,10 @@ fun ${NAME}Route(
 
 
 @Composable
-fun remember${NAME}Actions(state: ${NAME}CoordinatorState): ${NAME}Actions {
-    return remember(state) {
+fun remember${NAME}Actions(coordinator: ${NAME}Coordinator): ${NAME}Actions {
+    return remember(coordinator) {
         ${NAME}Actions(
-            onClick = state::doStuff
+            onClick = coordinator::doStuff
         )
     }
 }
