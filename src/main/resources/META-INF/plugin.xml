@@ -28,11 +28,10 @@
 
     <actions>
 
-
         <group id="JetpackComposeUIGroup" text="Group">
             <add-to-group group-id="NewGroup" anchor="first"/>
 
-            <group id="NodesPlugin.NewMenu.Arch"
+            <group id="JetpackComposeUi.NewMenu.Arch"
                    popup="true"
                    icon="/icons/icon_small.svg"
                    text="Jetpack Compose UI Arch"
@@ -49,7 +48,6 @@
                         icon="/icons/action_logo.svg"
                         description="Creates compose architecture files"
                         class="com.levinzonr.arch.jetpackcompose.plugin.ComposeComponentAction"/>
-                <add-to-group group-id="JetpackComposeUIGroup" anchor="first"/>
             </group>
 
 
