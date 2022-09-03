@@ -7,7 +7,7 @@ import androidx.compose.runtime.remember
 
 
 @Composable
-fun ${NAME}Coordinator(
+fun ${NAME}Route(
     state: ${NAME}CoordinatorState = remember${NAME}CoordinatorState()
 ) {
     // State observing and declarations
