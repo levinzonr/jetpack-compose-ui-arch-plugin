@@ -11,7 +11,7 @@ fun ${NAME}Route(
     coordinator: ${NAME}Coordinator = remember${NAME}Coordinator()
 ) {
     // State observing and declarations
-    val uiState by state.screenStateFlow.collectAsState(initial = ${NAME}State())
+    val uiState by coordinator.screenStateFlow.collectAsState(initial = ${NAME}State())
 
     // UI Actions
     val actions = remember${NAME}Actions(state)
