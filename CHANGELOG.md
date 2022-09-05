@@ -3,6 +3,10 @@
 # Jetpack Compose UI Architecture IDE plugin  Changelog
 
 ## [Unreleased]
+## [0.0.1-beta02]
+### Fixed
+- Fix Invalid references and imports in generated files
+- Fix `Can not add Action twice` error in IDE startup
 
 ## [0.0.1-beta01]
 ### Changed
