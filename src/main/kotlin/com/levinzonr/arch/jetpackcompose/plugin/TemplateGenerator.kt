@@ -7,6 +7,8 @@ import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.newvfs.impl.VirtualDirectoryImpl
 import com.intellij.psi.PsiDirectory
+import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.file.PsiDirectoryFactory
 import java.util.*
 
@@ -17,17 +19,16 @@ class TemplateGenerator(private val project: Project) {
             fileName: String,
             directory: PsiDirectory,
             properties: MutableMap<String, String>
-    ) {
+    ) : PsiFile {
         val manager = FileTemplateManager.getInstance(project)
         val template = manager.getInternalTemplate(templateName)
-
         properties[PropertyKeys.PackageName] = requireNotNull(directory.getPackageName())
-        FileTemplateUtil.createFromTemplate(
+        return FileTemplateUtil.createFromTemplate(
                 template,
                 "${fileName}.kt",
                 properties.toProperties(),
                 directory
-        )
+        ) as PsiFile
     }
 
     private fun PsiDirectory.getPackageName(): String? {
