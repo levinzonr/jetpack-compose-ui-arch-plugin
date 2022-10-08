@@ -3,6 +3,13 @@
 # Jetpack Compose UI Architecture IDE plugin  Changelog
 
 ## [Unreleased]
+
+## [0.1.0]
+### Added
+- Open `Contract` in editor after new feature is generated
+- Open `UI Component` in editor after new UI component is generated
+
+
 ## [0.0.1-beta02]
 ### Fixed
 - Fix Invalid references and imports in generated files
