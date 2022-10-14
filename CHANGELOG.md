@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.1.1]
+### Fixed
+- Use `cooridinator` in rememberActions function instead of `state`
+
 ## [0.1.0]
 ### Added
 - Open `Contract` in editor after new feature is generated
