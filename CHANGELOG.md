@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+## [0.2.1]
+
+### Changed
+- Adjust `Screen` Template to include name in the Preview
+- `LocalActions` are not used in the `Route` and `Screen` templates anymore
+
+### Fixed
+- Plugin now won't try to create files and packages that are already exists
+- Adjust `ViewModel` template to not create public flow everytime
+
+
 ## [0.1.1]
 ### Fixed
 - Use `cooridinator` in rememberActions function instead of `state`
