@@ -15,6 +15,6 @@ class ${NAME}ViewModel @Inject constructor(
 
     private val _stateFlow: MutableStateFlow<${NAME}State> = MutableStateFlow(${NAME}State())
   
-    val stateFlow: StateFlow<${NAME}State> get() = _stateFlow.asStateFlow()
+    val stateFlow: StateFlow<${NAME}State> = _stateFlow.asStateFlow()
 
 }
