@@ -17,9 +17,7 @@ fun ${NAME}Route(
     val actions = remember${NAME}Actions(coordinator)
 
     // UI Rendering
-    Provide${NAME}Actions(actions) {
-        ${NAME}Screen(uiState, actions)
-    }
+    ${NAME}Screen(uiState, actions)
 }
 
 

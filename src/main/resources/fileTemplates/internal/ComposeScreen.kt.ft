@@ -6,7 +6,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun ${NAME}Screen(
     state: ${NAME}State = ${NAME}State(),
-    actions: ${NAME}Actions = Local${NAME}Actions.current
+    actions: ${NAME}Actions = ${NAME}Actions()
 ) {
   // TODO UI Logic
 }
