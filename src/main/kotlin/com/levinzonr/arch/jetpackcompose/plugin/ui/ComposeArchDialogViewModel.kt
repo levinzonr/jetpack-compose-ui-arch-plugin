@@ -29,7 +29,11 @@ class ComposeArchDialogViewModel(
         generator.generateKt("ComposeViewModel", "${name}ViewModel", featPackage, properties)
         generator.generateKt("ComposeCoordinator", "${name}Coordinator", featPackage, properties)
         generator.generateKt("ComposeRoute", "${name}Route", featPackage, properties)
-        featPackage.createSubdirectory("components")
+
+        if (featPackage.findSubdirectory("components") == null) {
+            featPackage.createSubdirectory("components")
+        }
+
         projectDependencies.editor.openFile(file.virtualFile, true)
         scope.launch { successFlow.emit(Unit) }
     }

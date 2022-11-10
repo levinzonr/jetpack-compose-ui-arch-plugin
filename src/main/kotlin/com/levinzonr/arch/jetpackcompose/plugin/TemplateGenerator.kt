@@ -20,6 +20,11 @@ class TemplateGenerator(private val project: Project) {
             directory: PsiDirectory,
             properties: MutableMap<String, String>
     ) : PsiFile {
+
+        val existing = directory.findFile("${fileName}.kt")
+        if (existing != null) return existing
+
+
         val manager = FileTemplateManager.getInstance(project)
         val template = manager.getInternalTemplate(templateName)
         properties[PropertyKeys.PackageName] = requireNotNull(directory.getPackageName())
@@ -36,6 +41,7 @@ class TemplateGenerator(private val project: Project) {
                 .fileIndex
                 .getPackageNameByDirectory(virtualFile)
     }
+
 
     private fun Map<String, String>.toProperties(): Properties {
         return Properties().apply {
