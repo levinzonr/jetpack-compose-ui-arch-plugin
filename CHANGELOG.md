@@ -4,7 +4,7 @@
 
 ## [Unreleased]
 
-## [0.2.1]
+## [0.2.0]
 
 ### Changed
 - Adjust `Screen` Template to include name in the Preview
