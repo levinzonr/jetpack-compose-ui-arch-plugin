@@ -12,7 +12,7 @@ fun ${NAME}Screen(
 }
 
 @Composable
-@Preview
+@Preview(name = "${NAME}")
 private fun ${NAME}ScreenPreview() {
     ${NAME}Screen()
 }
