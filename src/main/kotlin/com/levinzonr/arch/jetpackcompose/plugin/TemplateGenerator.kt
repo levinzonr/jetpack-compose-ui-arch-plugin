@@ -18,7 +18,7 @@ class TemplateGenerator(private val project: Project) {
             templateName: String,
             fileName: String,
             directory: PsiDirectory,
-            properties: MutableMap<String, String>
+            properties: MutableMap<String,Any>
     ) : PsiFile {
 
         val existing = directory.findFile("${fileName}.kt")
@@ -43,9 +43,9 @@ class TemplateGenerator(private val project: Project) {
     }
 
 
-    private fun Map<String, String>.toProperties(): Properties {
+    private fun Map<String, Any>.toProperties(): Properties {
         return Properties().apply {
-            this@toProperties.forEach { setProperty(it.key, it.value) }
+            this@toProperties.forEach { setProperty(it.key, it.value.toString()) }
         }
     }
 }

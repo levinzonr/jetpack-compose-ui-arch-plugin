@@ -30,7 +30,10 @@ class ComposeArchDialogViewModel(
     var createFeaturePackage: Boolean = true
 
     fun onOkButtonClick() {
-        val properties = mutableMapOf(PropertyKeys.Name to name)
+        val properties = mutableMapOf<String, Any>(
+            PropertyKeys.Name to name,
+            PropertyKeys.UseFlowWithLifecycle to flowWithLifecycleEnabled
+        )
         val featPackage = if (createFeaturePackage) directory.createSubdirectory(name.lowercase()) else directory
         val file = generator.generateKt("ComposeContract", "${name}Contract", featPackage, properties)
         generator.generateKt("ComposeScreen", "${name}Screen", featPackage, properties)

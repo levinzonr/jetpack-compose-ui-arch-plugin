@@ -4,14 +4,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+#if (${USE_FLOW_WITH_LIFECYCLE} == "true")
+import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
+#end
 
-
+#if (${USE_FLOW_WITH_LIFECYCLE} == "true")
+@OptIn(ExperimentalLifecycleComposeApi::class)
+#end
 @Composable
 fun ${NAME}Route(
     coordinator: ${NAME}Coordinator = remember${NAME}Coordinator()
 ) {
     // State observing and declarations
-    val uiState by coordinator.screenStateFlow.collectAsState(initial = ${NAME}State())
+    #if (${USE_FLOW_WITH_LIFECYCLE} == "true") val uiState by coordinator.screenStateFlow.collectAsStateWithLifecycle(${NAME}State())
+    #else val uiState by coordinator.screenStateFlow.collectAsState(${NAME}State())
+    #end
 
     // UI Actions
     val actions = remember${NAME}Actions(coordinator)
