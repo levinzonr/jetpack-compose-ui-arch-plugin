@@ -32,7 +32,7 @@ class ComposeArchDialog(
                     text = "Use collectAsStateWithLifecycle",
                     prop = viewModel::flowWithLifecycleEnabled,
                     comment = buildString {
-                        appendLine("Collect the flow in the Screen component in a lifecycle aware way")
+                        appendLine("Collect the flow in the Route component in a lifecycle aware way")
                         append("Requires opt-in")
                     })
             }
