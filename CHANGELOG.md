@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+# [0.3.0]
+## Added
+- `NewFeature` Dialog now includes the experimental features which. They are provided either by the plugin or some other external library
+- Collect flows in lifecycle aware manner! `collectAsStateWithLifecycle()` is now available under the experimental features. This method requires opt-in and plugin will fill up the opt-in related code for you.
+
 ## [0.2.0]
 
 ### Changed
