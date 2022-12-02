@@ -2,10 +2,9 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature
 
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.psi.PsiDirectory
-import com.levinzonr.arch.jetpackcompose.plugin.PropertyKeys
-import com.levinzonr.arch.jetpackcompose.plugin.TemplateGenerator
+import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
+import com.levinzonr.arch.jetpackcompose.plugin.core.TemplateGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.ExperimentalFeaturesRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow

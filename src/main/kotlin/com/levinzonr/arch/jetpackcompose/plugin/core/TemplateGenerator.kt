@@ -1,15 +1,11 @@
-package com.levinzonr.arch.jetpackcompose.plugin
+package com.levinzonr.arch.jetpackcompose.plugin.core
 
 import com.intellij.ide.fileTemplates.FileTemplateManager
 import com.intellij.ide.fileTemplates.FileTemplateUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectRootManager
-import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.openapi.vfs.newvfs.impl.VirtualDirectoryImpl
 import com.intellij.psi.PsiDirectory
-import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.impl.file.PsiDirectoryFactory
 import java.util.*
 
 class TemplateGenerator(private val project: Project) {

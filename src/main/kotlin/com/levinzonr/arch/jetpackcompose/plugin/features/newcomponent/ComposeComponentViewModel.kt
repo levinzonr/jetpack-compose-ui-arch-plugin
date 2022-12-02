@@ -1,7 +1,7 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent
 
 import com.intellij.psi.PsiDirectory
-import com.levinzonr.arch.jetpackcompose.plugin.PropertyKeys
+import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
 import kotlinx.coroutines.flow.MutableSharedFlow

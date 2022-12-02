@@ -1,4 +1,4 @@
-package com.levinzonr.arch.jetpackcompose.plugin
+package com.levinzonr.arch.jetpackcompose.plugin.core
 
 object PropertyKeys {
     const val PackageName = "PACKAGE_NAME"
