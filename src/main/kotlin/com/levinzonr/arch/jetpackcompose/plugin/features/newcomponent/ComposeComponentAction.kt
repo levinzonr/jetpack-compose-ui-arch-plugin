@@ -1,15 +1,12 @@
-package com.levinzonr.arch.jetpackcompose.plugin
+package com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent
 
-import ComposeComponentDialog
+import com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent.ComposeComponentDialog
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
-import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
-import com.levinzonr.arch.jetpackcompose.plugin.ui.ComposeArchDialog
-import com.levinzonr.arch.jetpackcompose.plugin.ui.ComposeArchDialogViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.ui.ComposeComponentViewModel
+import com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent.ComposeComponentViewModel
 
 class ComposeComponentAction: AnAction() {
 

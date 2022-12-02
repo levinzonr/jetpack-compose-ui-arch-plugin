@@ -41,13 +41,13 @@
                         text="New Feature"
                         icon="/icons/action_logo.svg"
                         description="Creates compose architecture files"
-                        class="com.levinzonr.arch.jetpackcompose.plugin.ComposeArchAction"/>
+                        class="com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ComposeArchAction"/>
                 <action
                         id="ComposeArch.NewComponent"
                         text="New UI Component"
                         icon="/icons/action_logo.svg"
                         description="Creates compose architecture files"
-                        class="com.levinzonr.arch.jetpackcompose.plugin.ComposeComponentAction"/>
+                        class="com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent.ComposeComponentAction"/>
             </group>
 
 

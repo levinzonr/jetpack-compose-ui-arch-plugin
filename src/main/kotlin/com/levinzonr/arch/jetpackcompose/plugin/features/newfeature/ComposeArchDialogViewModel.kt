@@ -1,22 +1,30 @@
-package com.levinzonr.arch.jetpackcompose.plugin.ui
+package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature
 
+import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.TemplateGenerator
-import com.levinzonr.arch.jetpackcompose.plugin.base.BaseViewModel
+import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.ExperimentalFeaturesRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
 
 class ComposeArchDialogViewModel(
     private val directory: PsiDirectory,
-    private val projectDependencies: ProjectDependencies
+    private val generator: TemplateGenerator,
+    private val repository: ExperimentalFeaturesRepository,
+    private val editorManager: FileEditorManager,
 ) : BaseViewModel() {
 
-    private val generator = projectDependencies.generator
 
     var name: String = ""
         get() = field.capitalize()
+
+    var flowWithLifecycleEnabled: Boolean
+        get() = repository.get().useCollectFlowWithLifecycle
+        set(value) = repository.put(repository.get().copy(useCollectFlowWithLifecycle = value))
+
     val successFlow = MutableSharedFlow<Unit>()
 
     var createFeaturePackage: Boolean = true
@@ -34,7 +42,7 @@ class ComposeArchDialogViewModel(
             featPackage.createSubdirectory("components")
         }
 
-        projectDependencies.editor.openFile(file.virtualFile, true)
+        editorManager.openFile(file.virtualFile, true)
         scope.launch { successFlow.emit(Unit) }
     }
 

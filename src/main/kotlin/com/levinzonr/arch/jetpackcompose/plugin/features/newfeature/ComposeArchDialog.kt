@@ -1,17 +1,13 @@
-package com.levinzonr.arch.jetpackcompose.plugin.ui
+package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature
 
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.layout.panel
-import com.levinzonr.arch.jetpackcompose.plugin.base.BaseDialog
-import com.levinzonr.arch.jetpackcompose.plugin.dependencies.Dependencies
-import kotlinx.coroutines.CoroutineScope
+import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import javax.swing.JComponent
 
 class ComposeArchDialog(
-        private val viewModel: ComposeArchDialogViewModel,
+    private val viewModel: ComposeArchDialogViewModel,
 ) : BaseDialog() {
 
     init {
@@ -27,8 +23,19 @@ class ComposeArchDialog(
             row { label("New Jetpack Compose Feature") }
             row { textField(viewModel::name).focused() }
             row { checkBox("Also create package for the feature", viewModel::createFeaturePackage) }
+
             noteRow("Creates a set of files for the new Feature.\n" +
                     " All files will be placed in the package with the same name as the feature")
+
+            hideableRow("Experimental") {
+                checkBox(
+                    text = "Use collectAsStateWithLifecycle",
+                    prop = viewModel::flowWithLifecycleEnabled,
+                    comment = buildString {
+                        appendLine("Collect the flow in the Screen component in a lifecycle aware way")
+                        append("Requires opt-in")
+                    })
+            }
 
         }
     }

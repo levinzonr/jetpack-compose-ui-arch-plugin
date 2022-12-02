@@ -1,15 +1,9 @@
-package com.levinzonr.arch.jetpackcompose.plugin.ui
+package com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent
 
-import com.intellij.openapi.fileEditor.FileEditorManager
-import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.PropertyKeys
-import com.levinzonr.arch.jetpackcompose.plugin.TemplateGenerator
-import com.levinzonr.arch.jetpackcompose.plugin.base.BaseViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.dependencies.Dependencies
+import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 
