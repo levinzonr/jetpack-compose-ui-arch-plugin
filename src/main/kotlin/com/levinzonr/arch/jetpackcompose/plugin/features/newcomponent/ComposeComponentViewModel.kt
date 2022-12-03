@@ -16,7 +16,7 @@ class ComposeComponentViewModel(
     val successFlow = MutableSharedFlow<Unit>()
 
     fun onOkButtonClick() {
-        val properties = mutableMapOf(PropertyKeys.Name to name)
+        val properties: MutableMap<String, Any> = mutableMapOf(PropertyKeys.Name to name)
         val file = projectDependencies.generator.generateKt("ComposeComponent", name, directory, properties)
         projectDependencies.editor.openFile(file.virtualFile, true)
         scope.launch { successFlow.emit(Unit) }
