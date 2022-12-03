@@ -4,8 +4,12 @@
 
 ## [Unreleased]
 
-## [0.2.0]
+## [0.3.0]
+### Added
+- `NewFeature` Dialog now includes the experimental features which. They are provided either by the plugin or some other external library
+- Collect flows in lifecycle aware manner! `collectAsStateWithLifecycle()` is now available under the experimental features. This method requires opt-in and plugin will fill up the opt-in related code for you. Your preference will be persisted across the IDE restarts
 
+## [0.2.0]
 ### Changed
 - Adjust `Screen` Template to include name in the Preview
 - `LocalActions` are not used in the `Route` and `Screen` templates anymore

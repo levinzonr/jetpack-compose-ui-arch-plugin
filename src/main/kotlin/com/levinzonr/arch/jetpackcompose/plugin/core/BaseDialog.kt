@@ -1,4 +1,4 @@
-package com.levinzonr.arch.jetpackcompose.plugin.base
+package com.levinzonr.arch.jetpackcompose.plugin.core
 
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.DialogWrapper
