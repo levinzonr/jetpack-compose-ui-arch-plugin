@@ -1,10 +1,13 @@
 package ${PACKAGE_NAME}
 
 import androidx.compose.runtime.Composable
+#if (${USE_FLOW_WITH_LIFECYCLE} == "false")
 import androidx.compose.runtime.collectAsState
+#end
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 #if (${USE_FLOW_WITH_LIFECYCLE} == "true")
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 #end
 
