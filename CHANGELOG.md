@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.4.0]
+### Added
+- Add support for the newer versions of the IDE
+
 ## [0.3.0]
 ### Added
 - `NewFeature` Dialog now includes the experimental features which. They are provided either by the plugin or some other external library
