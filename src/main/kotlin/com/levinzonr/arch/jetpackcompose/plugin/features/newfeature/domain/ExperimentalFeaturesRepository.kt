@@ -12,7 +12,7 @@ class ExperimentalFeaturesRepository(
 
     fun get() : ExperimentalFeatures {
         return ExperimentalFeatures(
-            useCollectFlowWithLifecycle = dataSource.get(FlowWithLifecycleKey)
+            useCollectFlowWithLifecycle = dataSource.get(FlowWithLifecycleKey, true)
         )
     }
 

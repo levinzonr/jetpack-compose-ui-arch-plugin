@@ -9,8 +9,8 @@ class PreferencesDataSourceImpl(
         component.setValue(key.projectKey, value)
     }
 
-    override fun get(key: String): Boolean {
-        return component.getBoolean(key.projectKey)
+    override fun get(key: String, default: Boolean): Boolean {
+        return component.getBoolean(key.projectKey, default)
     }
 
     private val String.projectKey: String get() {
