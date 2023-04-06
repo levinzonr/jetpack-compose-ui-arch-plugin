@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.5.0]
+### Changed
+- Removed `Experimental` opt-in from the template when `collectAsStateWithLifecycle()` is used
+- Updated the UI for the `New Feature` dialog. Since there are no more experimental options this plugin provides, all options are grouped into one section
+- `collectAsStateWithLifecycle()` will be enabled by default. User preference is still persisted
+
 ## [0.4.0]
 ### Added
 - Add support for the newer versions of the IDE
