@@ -14,7 +14,7 @@ class ${NAME}Coordinator(
     val screenStateFlow = viewModel.stateFlow
 
     fun doStuff() {
-        
+        // TODO Handle UI Action
     }
 }
 
