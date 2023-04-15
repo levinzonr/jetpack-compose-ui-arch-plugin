@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.5.1]
+### Added
+- Add Support for the newer IDEs versions
+
 ## [0.5.0]
 ### Changed
 - Removed `Experimental` opt-in from the template when `collectAsStateWithLifecycle()` is used
