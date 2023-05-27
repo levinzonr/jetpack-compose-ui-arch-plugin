@@ -22,6 +22,15 @@ fun ${NAME}Route(
     // UI Actions
     val actions = remember${NAME}Actions(coordinator)
 
+    // Handle event
+    LaunchedEffect(Unit) {
+        coordinator.screenEventFlow.collect {
+            when (event) {
+                
+            }
+        }
+    }
+
     // UI Rendering
     ${NAME}Screen(uiState, actions)
 }

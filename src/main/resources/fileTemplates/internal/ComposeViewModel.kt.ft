@@ -13,6 +13,10 @@ class ${NAME}ViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
+    private val _eventFlow = Channel<${NAME}Event>()
+    
+    val eventFlow = _eventFlow.receiveAsFlow()
+
     private val _stateFlow: MutableStateFlow<${NAME}State> = MutableStateFlow(${NAME}State())
   
     val stateFlow: StateFlow<${NAME}State> = _stateFlow.asStateFlow()

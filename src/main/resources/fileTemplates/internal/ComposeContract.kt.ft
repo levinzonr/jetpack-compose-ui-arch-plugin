@@ -11,6 +11,13 @@ import androidx.compose.runtime.staticCompositionLocalOf
 class ${NAME}State
 
 /**
+ * UI Event that represents ${NAME}Screen
+**/
+sealed class ${NAME}Event {
+
+}
+
+/**
  * ${NAME} Actions emitted from the UI Layer
  * passed to the coordinator to handle
 **/

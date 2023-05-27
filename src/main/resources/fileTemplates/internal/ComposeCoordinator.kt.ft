@@ -13,6 +13,8 @@ class ${NAME}Coordinator(
 ) {
     val screenStateFlow = viewModel.stateFlow
 
+    val screenEventFlow = viewModel.eventFlow
+
     fun doStuff() {
         // TODO Handle UI Action
     }
