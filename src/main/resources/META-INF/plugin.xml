@@ -53,8 +53,12 @@
 
         </group>
 
-
     </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplates file="/liveTemplates/ComposeFoundation.xml"/>
+        <liveTemplateContext implementation="com.levinzonr.arch.jetpackcompose.plugin.features.livetemplates.TemplatesContext"/>
+    </extensions>
 
 
 </idea-plugin>
