@@ -5,8 +5,8 @@ import com.intellij.codeInsight.template.TemplateContextType
 
 
 class TemplatesContext : TemplateContextType(ID, Name) {
-    override fun isInContext(templateActionContext: TemplateActionContext): Boolean {
-        return templateActionContext.file.name.endsWith(".kt")
+    override fun isInContext(context: TemplateActionContext): Boolean {
+        return context.file.name.endsWith(".kt")
     }
 
     companion object {
