@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+## [0.6.0]
+### Added
+- Added multiple live templates configurations to accelerate development with `@Compose` even more. There are currently two groups of Live Templates: Foundation and UI Arch. Foundation templates contains heavily used layouts and effects:
+  - `col` -> Create Composable Column with pre-defined modifier and Arrangement
+  - `row`-> Create Composable Row with pre-defined modifier and Arrangement
+  - `box` -> Create Composable Box with Modifier
+  - `laun` -> Create Launched Effect with Unit Key
+  - `disp` -> Create Disposable Effect with Unit Key and `onDispose` Prepared
+
+UI Arch Live templates right now only contains one template:
+- `compon` -> Creates `@Composable` Component with the similar setup as you would've create from the New Component Dialog. It will create the component with the Modifier and a preview for it 
+
+### Fixed
+- Fix `collectAsLifecycle` flag not being set properly
+
 ## [0.5.1]
 ### Added
 - Add Support for the newer IDEs versions
