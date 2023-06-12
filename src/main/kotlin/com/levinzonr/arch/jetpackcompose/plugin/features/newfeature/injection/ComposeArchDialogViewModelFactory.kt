@@ -11,7 +11,8 @@ object ComposeArchDialogViewModelFactory {
             directory = psiDirectory,
             generator = dependencies.generator,
             repository = ExperimentalFeaturesRepositoryFactory.create(dependencies),
-            editorManager = dependencies.editor
+            editorManager = dependencies.editor,
+            application = dependencies.application
         )
     }
 }
