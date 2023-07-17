@@ -4,8 +4,6 @@
 
 ## [Unreleased]
 
-<<<<<<< Updated upstream
-=======
 ## [1.0.0]
 ### Added
 With the release of 1.0.0 I am very excited to announce official documentation to accompany this plugin. I'm planning to expand the plugin functionality and will be more than pleased to hear some feedback about the Architecture that it implements, so feel free to leave a feedback or start a discussion/issue in the GitHub repository!
@@ -28,7 +26,7 @@ UI Arch Live templates right now only contains one template:
 ### Fixed
 - Fix `collectAsLifecycle` flag not being set properly
 
->>>>>>> Stashed changes
+
 ## [0.5.1]
 ### Added
 - Add Support for the newer IDEs versions
