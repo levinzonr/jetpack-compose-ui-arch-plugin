@@ -1,7 +1,10 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent
 
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.ui.layout.panel
+import com.intellij.ui.components.noteComponent
+import com.intellij.ui.dsl.builder.bindText
+import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.gridLayout.HorizontalAlign
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -20,8 +23,8 @@ class ComposeComponentDialog(
     override fun createPanel(): DialogPanel {
         return panel {
             row { label("New Jetpack Compose UI Component") }
-            row { textField(viewModel::name).focused() }
-            noteRow("Creates a new Composable Component and its Preview based on the name given")
+            row { textField().focused().bindText(viewModel::name).horizontalAlign(HorizontalAlign.FILL) }
+            noteComponent("Creates a new Composable Component and its Preview based on the name given")
         }
     }
 
