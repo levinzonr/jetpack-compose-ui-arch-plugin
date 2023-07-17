@@ -1,7 +1,11 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature
 
+import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.ui.layout.panel
+import com.intellij.ui.components.noteComponent
+import com.intellij.ui.dsl.builder.bindSelected
+import com.intellij.ui.dsl.builder.bindText
+import com.intellij.ui.dsl.builder.panel
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -21,22 +25,34 @@ class ComposeArchDialog(
     override fun createPanel(): DialogPanel {
         return panel {
             row { label("New Jetpack Compose Feature") }
-            row { textField(viewModel::name).focused() }
+            row {
+                textField()
+                    .focused()
+                    .bindText(viewModel::name)
+                    .horizontalAlign(com.intellij.ui.dsl.gridLayout.HorizontalAlign.FILL)
+            }
 
-            noteRow(
+            noteComponent(
                 "Creates a set of files for the new Feature.\n" +
                         " All files will be placed in the package with the same name as the feature"
             )
-            titledRow("Options") {
-                row { checkBox("Also create package for the feature", viewModel::createFeaturePackage) }
+            group("Options") {
+                row {
+                    checkBox("Also create package for the feature")
+                        .bindSelected(viewModel::createFeaturePackage)
+
+                }
 
                 row {
-                    checkBox(
-                        text = "Use collectAsStateWithLifecycle",
-                        prop = viewModel::flowWithLifecycleEnabled,
-                        comment = buildString {
-                            appendLine("Collect the flow in the Route component in a lifecycle aware way")
-                        })
+                    checkBox("Use collectAsStateWithLifecycle")
+                        .bindSelected(viewModel::flowWithLifecycleEnabled)
+                }
+                row { comment("Collect the flow in the Route component in a lifecycle aware way") }
+            }
+
+            row {
+                link("ℹ\uFE0F Learn more") {
+                    BrowserUtil.browse("https://levinzonr.github.io/compose-ui-arch-docs")
                 }
             }
 
