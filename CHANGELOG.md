@@ -7,9 +7,9 @@
 ## 1.0.0
 
 ### Added
-- With the release of 1.0.0 I am very excited to announce official documentation to accompany this plugin. I'm planning to expand the plugin functionality and will be more than pleased to hear some feedback about the Architecture that it implements, so feel free to leave a feedback or start a discussion/issue in the GitHub repository!
-  - [Compose UI Arch Docs](https://levinzonr.github.io/compose-ui-arch-docs/) - Ever-evolving set of rules and principles that is a foundation of this Plugin architecture templates
-  - [Jetpack Compose UI Architecture Article](https://engineering.monstar-lab.com/en/post/2023/07/14/Jetpack-Compose-UI-Architecture/) - Introduction to all the components with the example and motivation behind it
+ - With the release of 1.0.0 I am very excited to announce official documentation to accompany this plugin. I'm planning to expand the plugin functionality and will be more than pleased to hear some feedback about the Architecture that it implements, so feel free to leave a feedback or start a discussion/issue in the GitHub repository!
+ - [Compose UI Arch Docs](https://levinzonr.github.io/compose-ui-arch-docs/) - Ever-evolving set of rules and principles that is a foundation of this Plugin architecture templates
+ - [Jetpack Compose UI Architecture Article](https://engineering.monstar-lab.com/en/post/2023/07/14/Jetpack-Compose-UI-Architecture/) - Introduction to all the components with the example and motivation behind it
 
 ## 0.6.0
 
