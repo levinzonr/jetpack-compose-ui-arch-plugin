@@ -1,6 +1,8 @@
 [versions]
 # libraries
 annotations = "24.0.1"
+kotlin_coroutines_swing = "1.6.4"
+kotlin_reflect = "1.6.21"
 
 # plugins
 kotlin = "1.9.0"
@@ -11,6 +13,8 @@ kover = "0.7.2"
 
 [libraries]
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
+kotlin_coroutines_swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin_coroutines_swing" }
+kotlin_reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin_reflect" }
 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }

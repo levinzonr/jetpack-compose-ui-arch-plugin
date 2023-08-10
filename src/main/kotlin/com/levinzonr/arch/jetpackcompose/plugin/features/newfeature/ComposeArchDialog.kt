@@ -3,9 +3,7 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.components.noteComponent
-import com.intellij.ui.dsl.builder.bindSelected
-import com.intellij.ui.dsl.builder.bindText
-import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.builder.*
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -32,10 +30,14 @@ class ComposeArchDialog(
                     .horizontalAlign(com.intellij.ui.dsl.gridLayout.HorizontalAlign.FILL)
             }
 
-            noteComponent(
-                "Creates a set of files for the new Feature.\n" +
-                        " All files will be placed in the package with the same name as the feature"
-            )
+            row {
+                text(
+                    "Creates a set of files for the new Feature.<br>" +
+                            " All files will be placed in the package with the same name as the feature",
+                    maxLineLength = DEFAULT_COMMENT_WIDTH
+                )
+            }
+
             group("Options") {
                 row {
                     checkBox("Also create package for the feature")
