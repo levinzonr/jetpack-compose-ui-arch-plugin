@@ -6,6 +6,7 @@ import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.dsl.gridLayout.HorizontalAlign
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
+import com.levinzonr.arch.jetpackcompose.plugin.features.feedback.feedbackActions
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -25,6 +26,7 @@ class ComposeComponentDialog(
             row { label("New Jetpack Compose UI Component") }
             row { textField().focused().bindText(viewModel::name).horizontalAlign(HorizontalAlign.FILL) }
             row { comment("Creates a new Composable Component and its Preview based on the name given") }
+            row { feedbackActions() }
         }
     }
 
