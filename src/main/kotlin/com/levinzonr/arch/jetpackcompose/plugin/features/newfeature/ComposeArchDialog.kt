@@ -5,6 +5,7 @@ import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.components.noteComponent
 import com.intellij.ui.dsl.builder.*
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
+import com.levinzonr.arch.jetpackcompose.plugin.core.Links
 import com.levinzonr.arch.jetpackcompose.plugin.features.feedback.feedbackActions
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -55,7 +56,7 @@ class ComposeArchDialog(
 
             row {
                 link("ℹ\uFE0F Learn more") {
-                    BrowserUtil.browse("https://levinzonr.github.io/compose-ui-arch-docs")
+                    BrowserUtil.browse(Links.DOCS)
                 }
                 feedbackActions()
             }
