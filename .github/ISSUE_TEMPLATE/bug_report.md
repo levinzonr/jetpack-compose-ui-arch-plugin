@@ -6,10 +6,6 @@ labels: 'bug'
 assignees: 'levinzonr'
 ---
 
-<!-- Please do not use this issue tracker for support or questions, use Forum or Slack listed here:
-     https://plugins.jetbrains.com/docs/intellij/getting-help.html
-     Please **always** provide link to sources if possible. -->
-
 **Describe the bug:**
 <!-- A clear and concise description of what the bug is. -->
 
