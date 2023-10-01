@@ -4,6 +4,16 @@
 
 ## Unreleased
 
+## 1.1.0 - 2023-10-01
+
+### Added
+- New Feature dialog now also has an Advanced **More options** dialog which provides a place for more configuration options when creating new features
+- `Koin` support: Alongside `Hilt`, it is now possible to generate template files with `Koin` framework in mind. The coordinator will now respect the ViewModel Injection option from the **More options** dialog to put proper imports and factory methods based on the selected option.
+- `collectAsStateWithLifecycle` option is now available via **More Options** dialog
+
+### Removed
+- `LocalActions` utility has been removed from the Contract template
+
 ## 1.0.1 - 2023-08-10
 
 ### Added
