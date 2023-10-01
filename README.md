@@ -2,7 +2,7 @@
 
 ![Build](https://github.com/levinzonr/jetpack-compose-ui-arch-plugin/workflows/Build/badge.svg)
 ![AndroidWeekly](https://androidweekly.net/issues/issue-583/badge)
-
+<a href="https://jetc.dev/issues/178.html"><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23178-blue?logo=Jetpack+Compose&amp;logoColor=white" alt="As Seen In - jetc.dev Newsletter Issue #178"></a>
 <!-- Plugin description -->
 
 **Jetpack Compose UI Architecture Plugin** provides a set of templates that to make the development of new Jetpack Compose features faster.
@@ -22,7 +22,7 @@ This dialog allows you to create several files related to Jetpack Compose UI Arc
   - `[FeatName]Screen` - Basic, stateless, UI of your Screen
   - `[FeatName]Coordinator` - Main State holder of the Screen, controls the screen UI logic and Interactions
   - `[FeatName]Route` - Main entry point, tied to `Coordinator` and delegates all the Actions to it, Emits Screen
-  - `[FeatName]ViewModel` - basic implementation of your viewModel
+  - `[FeatName]ViewModel` - Basic implementation of your ViewModel
 
 
 ## Live Templates
