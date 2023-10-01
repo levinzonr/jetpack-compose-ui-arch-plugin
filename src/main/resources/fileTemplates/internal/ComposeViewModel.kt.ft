@@ -2,14 +2,18 @@ package $PACKAGE_NAME
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+#if (${VIEW_MODEL_INJECTION} == "Hilt")
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+#end
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
+#if (${VIEW_MODEL_INJECTION} == "Hilt")
 @HiltViewModel
-class ${NAME}ViewModel @Inject constructor(
+#end
+class ${NAME}ViewModel #if (${VIEW_MODEL_INJECTION} == "Hilt") @Inject constructor #end(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 

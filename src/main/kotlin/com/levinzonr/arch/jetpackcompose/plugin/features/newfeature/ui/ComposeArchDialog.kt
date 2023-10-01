@@ -1,17 +1,19 @@
-package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature
+package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui
 
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.ui.components.noteComponent
 import com.intellij.ui.dsl.builder.*
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import com.levinzonr.arch.jetpackcompose.plugin.core.Links
 import com.levinzonr.arch.jetpackcompose.plugin.features.feedback.feedbackActions
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedDialog
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class ComposeArchDialog(
     private val viewModel: ComposeArchDialogViewModel,
+    private val advancedViewModel: AdvancedViewModel
 ) : BaseDialog() {
 
     init {
@@ -48,17 +50,16 @@ class ComposeArchDialog(
                 }
 
                 row {
-                    checkBox("Use collectAsStateWithLifecycle")
-                        .bindSelected(viewModel::flowWithLifecycleEnabled)
+                    link("More options") {
+                        AdvancedDialog(advancedViewModel).show()
+                    }
                 }
-                row { comment("Collect the flow in the Route component in a lifecycle aware way") }
             }
 
             row {
                 link("ℹ\uFE0F Learn more") {
                     BrowserUtil.browse(Links.DOCS)
                 }
-                feedbackActions()
             }
 
         }

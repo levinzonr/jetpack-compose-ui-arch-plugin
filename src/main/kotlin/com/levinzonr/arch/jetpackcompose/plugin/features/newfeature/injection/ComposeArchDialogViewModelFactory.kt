@@ -2,7 +2,7 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.injection
 
 import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
-import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ComposeArchDialogViewModel
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.ComposeArchDialogViewModel
 
 object ComposeArchDialogViewModelFactory {
 

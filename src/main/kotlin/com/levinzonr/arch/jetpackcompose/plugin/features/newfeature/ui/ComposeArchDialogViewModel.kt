@@ -1,20 +1,20 @@
-package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature
+package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui
 
 import com.intellij.openapi.application.Application
 import com.intellij.openapi.fileEditor.FileEditorManager
-import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.core.TemplateGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.ExperimentalFeaturesRepository
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.InjectionConfiguration
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
 
 class ComposeArchDialogViewModel(
     private val directory: PsiDirectory,
     private val generator: TemplateGenerator,
-    private val repository: ExperimentalFeaturesRepository,
+    private val repository: FeatureConfigurationRepository,
     private val editorManager: FileEditorManager,
     private val application: Application
 ) : BaseViewModel() {
@@ -23,18 +23,18 @@ class ComposeArchDialogViewModel(
     var name: String = ""
         get() = field.capitalize()
 
-    var flowWithLifecycleEnabled: Boolean
-        get() = repository.get().useCollectFlowWithLifecycle
-        set(value) = repository.put(repository.get().copy(useCollectFlowWithLifecycle = value))
-
     val successFlow = MutableSharedFlow<Unit>()
 
     var createFeaturePackage: Boolean = true
 
     fun onOkButtonClick() {
+
+        val config = repository.get()
+
         val properties = mutableMapOf<String, Any>(
             PropertyKeys.Name to name,
-            PropertyKeys.UseFlowWithLifecycle to flowWithLifecycleEnabled
+            PropertyKeys.UseFlowWithLifecycle to config.useCollectFlowWithLifecycle,
+            PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name
         )
         application.runWriteAction {
             val featPackage = if (createFeaturePackage) directory.createSubdirectory(name.lowercase()) else directory

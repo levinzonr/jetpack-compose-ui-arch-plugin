@@ -13,6 +13,14 @@ class PreferencesDataSourceImpl(
         return component.getBoolean(key.projectKey)
     }
 
+    override fun put(key: String, value: String) {
+        component.setValue(key, value)
+    }
+
+    override fun get(key: String, default: String): String {
+        return component.getValue(key) ?: default
+    }
+
     private val String.projectKey: String get() {
         return "com.levinzonr.arch.jetpackcompose.plugin_$this"
     }

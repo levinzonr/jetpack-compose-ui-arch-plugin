@@ -41,7 +41,7 @@
                         text="New Feature"
                         icon="/icons/action_logo.svg"
                         description="Creates compose architecture files"
-                        class="com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ComposeArchAction"/>
+                        class="com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.ComposeArchAction"/>
                 <action
                         id="ComposeArch.NewComponent"
                         text="New UI Component"

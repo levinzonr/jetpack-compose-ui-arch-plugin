@@ -2,7 +2,9 @@ package $PACKAGE_NAME
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.hilt.navigation.compose.hiltViewModel
+#if (${VIEW_MODEL_INJECTION} == "Hilt") import androidx.hilt.navigation.compose.hiltViewModel
+#else import org.koin.androidx.compose.koinViewModel
+#end
 
 /**
  * Screen's coordinator which is responsible for handling actions from the UI layer
@@ -20,7 +22,7 @@ class ${NAME}Coordinator(
 
 @Composable
 fun remember${NAME}Coordinator(
-    viewModel: ${NAME}ViewModel = hiltViewModel()
+    viewModel: ${NAME}ViewModel = #if (${VIEW_MODEL_INJECTION} == "Hilt") hiltViewModel() #else koinViewModel() #end
 ) : ${NAME}Coordinator {
     return remember(viewModel) {
         ${NAME}Coordinator(
