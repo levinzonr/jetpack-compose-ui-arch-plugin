@@ -5,7 +5,6 @@ import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.dsl.builder.*
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import com.levinzonr.arch.jetpackcompose.plugin.core.Links
-import com.levinzonr.arch.jetpackcompose.plugin.features.feedback.feedbackActions
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedDialog
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -31,7 +30,7 @@ class ComposeArchDialog(
                 textField()
                     .focused()
                     .bindText(viewModel::name)
-                    .horizontalAlign(com.intellij.ui.dsl.gridLayout.HorizontalAlign.FILL)
+                    .align(Align.FILL)
             }
 
             row {
