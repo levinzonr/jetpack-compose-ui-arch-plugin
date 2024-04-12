@@ -3,9 +3,9 @@ package com.levinzonr.arch.jetpackcompose.plugin.core
 import com.intellij.ide.fileTemplates.FileTemplateManager
 import com.intellij.ide.fileTemplates.FileTemplateUtil
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiFile
+import com.intellij.psi.impl.file.PsiDirectoryFactory
 import java.util.*
 
 class TemplateGenerator(private val project: Project) {
@@ -33,9 +33,7 @@ class TemplateGenerator(private val project: Project) {
     }
 
     private fun PsiDirectory.getPackageName(): String? {
-        return ProjectRootManager.getInstance(project)
-                .fileIndex
-                .getPackageNameByDirectory(virtualFile)
+        return PsiDirectoryFactory.getInstance(project).getQualifiedName(this, false)
     }
 
 
