@@ -3,6 +3,7 @@
 annotations = "24.0.1"
 kotlin_coroutines_swing = "1.6.4"
 kotlin_reflect = "1.6.21"
+ai_ollama = "1.0.63"
 
 # plugins
 kotlin = "1.9.0"
@@ -12,6 +13,8 @@ qodana = "0.1.13"
 kover = "0.7.2"
 
 [libraries]
+ai_ollama = { module = "io.github.amithkoujalgi:ollama4j", version.ref = "ai_ollama" }
+
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
 kotlin_coroutines_swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin_coroutines_swing" }
 kotlin_reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin_reflect" }

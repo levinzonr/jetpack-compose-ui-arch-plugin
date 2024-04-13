@@ -25,6 +25,7 @@ repositories {
 dependencies {
     implementation(libs.kotlin.coroutines.swing)
     implementation(libs.kotlin.reflect)
+    implementation(libs.ai.ollama)
 
 }
 
