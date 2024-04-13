@@ -6,10 +6,7 @@ import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.core.TemplateGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.features.ai.data.OllamaGenerator
-import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.OllamaSettings
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
-import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.InjectionConfiguration
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
 

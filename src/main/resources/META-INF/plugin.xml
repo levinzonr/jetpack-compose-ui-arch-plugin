@@ -26,6 +26,14 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
 
 
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.levinzonr.arch.jetpackcompose.plugin.features.settings.JetpackComposeArchPluginConfigurable"
+                id="com.levinzonr.arch.jetpackcompose.plugin.features.settings.JetpackComposeArchPluginConfigurable"
+                displayName="Jetpack Compose UI Architecture"/>
+    </extensions>
+
     <actions>
 
         <group id="JetpackComposeUIGroup" text="Group">
@@ -57,8 +65,9 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <defaultLiveTemplates file="/liveTemplates/ComposeFoundation.xml"/>
-        <defaultLiveTemplates  file="/liveTemplates/ComposeUIArch.xml"/>
-        <liveTemplateContext implementation="com.levinzonr.arch.jetpackcompose.plugin.features.livetemplates.TemplatesContext"/>
+        <defaultLiveTemplates file="/liveTemplates/ComposeUIArch.xml"/>
+        <liveTemplateContext
+                implementation="com.levinzonr.arch.jetpackcompose.plugin.features.livetemplates.TemplatesContext"/>
     </extensions>
 
 
