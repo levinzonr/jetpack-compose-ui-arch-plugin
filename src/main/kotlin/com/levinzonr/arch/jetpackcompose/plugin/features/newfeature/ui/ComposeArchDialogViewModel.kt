@@ -1,11 +1,12 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui
 
-import com.intellij.openapi.application.Application
+import com.intellij.openapi.application.*
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.core.TemplateGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
+import com.levinzonr.arch.jetpackcompose.plugin.core.ObservableBoolean
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.FeatureBreakdownGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.FeatureBreakdown
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
@@ -30,17 +31,14 @@ class ComposeArchDialogViewModel(
     var description: String = ""
 
     var createFeaturePackage: Boolean = true
+    val aiLoadingState = ObservableBoolean(false)
 
     fun onOkButtonClick() {
-
-
-        var breakdown: FeatureBreakdown?
-
         scope.launch {
             if (description.isNotBlank()) {
+                aiLoadingState.set(true)
                 val state = featureBreakdownGenerator.generate(name, description)
-                println(state)
-                breakdown = state.getOrNull()
+                val breakdown = state.getOrNull()
                 generateFiles(breakdown)
             } else {
                 generateFiles(null)
@@ -60,22 +58,25 @@ class ComposeArchDialogViewModel(
             PropertyKeys.AI_USED to (breakdown != null)
         )
 
-        application.runWriteAction {
-            val featPackage =
-                if (createFeaturePackage) directory.createSubdirectory(name.lowercase()) else directory
-            val file = generator.generateKt("ComposeContract", "${name}Contract", featPackage, properties)
-            generator.generateKt("ComposeScreen", "${name}Screen", featPackage, properties)
-            generator.generateKt("ComposeViewModel", "${name}ViewModel", featPackage, properties)
-            generator.generateKt("ComposeCoordinator", "${name}Coordinator", featPackage, properties)
-            generator.generateKt("ComposeRoute", "${name}Route", featPackage, properties)
+        invokeLater(ModalityState.defaultModalityState()) {
+            runWriteAction {
+                val featPackage =
+                    if (createFeaturePackage) directory.createSubdirectory(name.lowercase()) else directory
+                val file = generator.generateKt("ComposeContract", "${name}Contract", featPackage, properties)
+                generator.generateKt("ComposeScreen", "${name}Screen", featPackage, properties)
+                generator.generateKt("ComposeViewModel", "${name}ViewModel", featPackage, properties)
+                generator.generateKt("ComposeCoordinator", "${name}Coordinator", featPackage, properties)
+                generator.generateKt("ComposeRoute", "${name}Route", featPackage, properties)
 
-            if (featPackage.findSubdirectory("components") == null) {
-                featPackage.createSubdirectory("components")
+                if (featPackage.findSubdirectory("components") == null) {
+                    featPackage.createSubdirectory("components")
+                }
+
+                editorManager.openFile(file.virtualFile, true)
             }
-
-            editorManager.openFile(file.virtualFile, true)
+            scope.launch { successFlow.emit(Unit) }
         }
-        scope.launch { successFlow.emit(Unit) }
+
     }
 
 }

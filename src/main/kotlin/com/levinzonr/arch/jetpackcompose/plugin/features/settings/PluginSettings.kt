@@ -1,13 +1,16 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.settings
 
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.options.ShowSettingsUtil
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.injection.SettingsViewModelFactory
 import javax.swing.JComponent
 
-class JetpackComposeArchPluginConfigurable : Configurable {
+class PluginSettings : Configurable {
 
     private val viewModel: SettingsViewModel = SettingsViewModelFactory.create()
     private lateinit var dialogPanel: DialogPanel
@@ -59,5 +62,16 @@ class JetpackComposeArchPluginConfigurable : Configurable {
 
     override fun getDisplayName(): String {
        return "Jetpack Compose UI Architecture Plugin Settings"
+    }
+
+    companion object {
+        fun open(
+            project: Project = ProjectManager.getInstance().defaultProject
+        ) {
+            ShowSettingsUtil.getInstance().showSettingsDialog(
+                project,
+                PluginSettings::class.java
+            )
+        }
     }
 }

@@ -29,8 +29,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
                 parentId="tools"
-                instance="com.levinzonr.arch.jetpackcompose.plugin.features.settings.JetpackComposeArchPluginConfigurable"
-                id="com.levinzonr.arch.jetpackcompose.plugin.features.settings.JetpackComposeArchPluginConfigurable"
+                instance="com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings"
+                id="com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings"
                 displayName="Jetpack Compose UI Architecture"/>
     </extensions>
 
