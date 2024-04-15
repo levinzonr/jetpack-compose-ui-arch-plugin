@@ -6,12 +6,11 @@ import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.core.TemplateGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.FeatureBreakdownRepository
+import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.FeatureBreakdownGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.FeatureBreakdown
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.swing.Swing
 
 class ComposeArchDialogViewModel(
     private val directory: PsiDirectory,
@@ -19,7 +18,7 @@ class ComposeArchDialogViewModel(
     private val repository: FeatureConfigurationRepository,
     private val editorManager: FileEditorManager,
     private val application: Application,
-    private val featureBreakdownRepository: FeatureBreakdownRepository
+    private val featureBreakdownGenerator: FeatureBreakdownGenerator
 ) : BaseViewModel() {
 
     var name: String = ""
@@ -35,26 +34,30 @@ class ComposeArchDialogViewModel(
     fun onOkButtonClick() {
 
 
-        var snippet: FeatureBreakdown?
+        var breakdown: FeatureBreakdown?
 
         scope.launch {
             if (description.isNotBlank()) {
-                val state = featureBreakdownRepository.generate(name, description)
+                val state = featureBreakdownGenerator.generate(name, description)
                 println(state)
-                snippet = state.getOrNull()
-                generateFiles(snippet)
+                breakdown = state.getOrNull()
+                generateFiles(breakdown)
             } else {
                 generateFiles(null)
             }
         }
     }
 
-    private fun generateFiles(snippet: FeatureBreakdown?) {
+    private fun generateFiles(breakdown: FeatureBreakdown?) {
         val config = repository.get()
+        println(breakdown)
         val properties = mutableMapOf<String, Any>(
             PropertyKeys.Name to name,
             PropertyKeys.UseFlowWithLifecycle to config.useCollectFlowWithLifecycle,
-            PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name
+            PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
+            PropertyKeys.STATE_PROPS to breakdown?.propertyStatements.orEmpty(),
+            PropertyKeys.ACTIONS to breakdown?.actionStatements.orEmpty(),
+            PropertyKeys.AI_USED to (breakdown != null)
         )
 
         application.runWriteAction {

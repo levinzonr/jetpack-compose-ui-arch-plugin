@@ -9,15 +9,25 @@ data class FeatureBreakdown(
     val actions: List<Action>
 ) {
 
+    val propertyStatements = properties.joinToString("\n") {
+        "val ${it.name}: ${it.type},"
+    }
+
+    val actionStatements= actions.joinToString("\n") {
+        val params = it.params.joinToString(",")
+        "val ${it.name}: ($params) -> Unit = {},"
+    }
+
     @Serializable
-    class StateProperties(
+    data class StateProperties(
         val name: String,
         val type: String
     )
 
     @Serializable
-    class Action(
-        val name: String
+    data class Action(
+        val name: String,
+        val params: List<String>
     )
 }
 
