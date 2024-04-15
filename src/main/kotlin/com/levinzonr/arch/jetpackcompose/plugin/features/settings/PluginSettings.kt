@@ -33,9 +33,13 @@ class PluginSettings : Configurable {
                     }
                     row {
                         button(
-                            text = "Test connection",
-                            actionListener = { viewModel.testOllamaConnection() }
+                            text = "Test connection (needs to applied first)",
+                            actionListener = {
+                                viewModel.testOllamaConnection()
+                            }
                         )
+                        text(text = "")
+                            .bindText(viewModel.ollamaConnectionStatus)
                     }
 
                 }

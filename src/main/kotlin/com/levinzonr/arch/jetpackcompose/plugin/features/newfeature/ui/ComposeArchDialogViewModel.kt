@@ -3,10 +3,7 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui
 import com.intellij.openapi.application.*
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.psi.PsiDirectory
-import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
-import com.levinzonr.arch.jetpackcompose.plugin.core.TemplateGenerator
-import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.core.ObservableBoolean
+import com.levinzonr.arch.jetpackcompose.plugin.core.*
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.FeatureBreakdownGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.FeatureBreakdown
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
@@ -31,7 +28,7 @@ class ComposeArchDialogViewModel(
     var description: String = ""
 
     var createFeaturePackage: Boolean = true
-    val aiLoadingState = ObservableBoolean(false)
+    val aiLoadingState = ObservableValue(false)
 
     fun onOkButtonClick() {
         scope.launch {

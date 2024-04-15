@@ -36,7 +36,8 @@ class OllamaGenerator(
     }
 
     override suspend fun ping(): Boolean {
-        return api.ping()
+        api.generate(settings.model, "Hello!", OptionsBuilder().build())
+        return true
     }
 }
 
