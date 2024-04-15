@@ -4,6 +4,16 @@
 
 ## Unreleased
 
+## 1.1.3 - 2024-04-15
+
+### Fixed
+- Fix the issue with the Live Templates not being available in the IDE
+
+## 1.1.2 - 2024-04-12
+
+### Added
+- Support for the latest IDE versions
+
 ## 1.1.1 - 2024-01-15
 
 ### Added
