@@ -38,16 +38,15 @@ class SettingsViewModel(
     }
 
     fun testOllamaConnection() {
-        val ollama = OllamaGenerator(newSettings.ollama)
+        ollamaConnectionStatus.set("Testing...")
         scope.launch {
             try {
-                ollamaConnectionStatus.set("Testing...")
+                val ollama = OllamaGenerator(newSettings.ollama)
                 val success =  ollama.ping()
                 val result = if (success) "Success" else "Failed"
                 ollamaConnectionStatus.set(result)
             } catch (e: Exception) {
-                ollamaConnectionStatus.set(e.message ?: "Failed")
-                e.printStackTrace()
+                ollamaConnectionStatus.set(e.message ?: e.toString())
             }
         }
     }

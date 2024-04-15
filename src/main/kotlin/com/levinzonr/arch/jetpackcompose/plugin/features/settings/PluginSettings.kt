@@ -1,12 +1,15 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.settings
 
+import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.ui.dsl.builder.DEFAULT_COMMENT_WIDTH
 import com.intellij.ui.dsl.builder.bindText
 import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.builder.whenTextChangedFromUi
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.injection.SettingsViewModelFactory
 import javax.swing.JComponent
 
@@ -21,7 +24,20 @@ class PluginSettings : Configurable {
                 row {
                     text("Configure the AI settings for the plugin and manage the AI models, API keys, and other settings")
                 }
-                group("Ollama") {
+                group("\uD83E\uDD99 Ollama") {
+                    row {
+                        text(
+                            text = "Ollama is an advanced AI tool that allows users to easily set up and run large " +
+                                "language models locally<br>" +
+                            "<br>In order to use Ollama, you need to have the Ollama CLI installed on your machine. codegemma model is recommended",
+                            maxLineLength = DEFAULT_COMMENT_WIDTH
+                        )
+
+                        link("Install Ollama") {
+                            BrowserUtil.open("https://ollama.ai/")
+                        }
+                    }
+
                     row("Host") {
                         textField()
                             .bindText(viewModel::host)
@@ -34,10 +50,9 @@ class PluginSettings : Configurable {
                     row {
                         button(
                             text = "Test connection (needs to applied first)",
-                            actionListener = {
-                                viewModel.testOllamaConnection()
-                            }
-                        )
+                        ) {
+                            viewModel.testOllamaConnection()
+                        }
                         text(text = "")
                             .bindText(viewModel.ollamaConnectionStatus)
                     }
