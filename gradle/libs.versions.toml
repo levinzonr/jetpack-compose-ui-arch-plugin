@@ -1,12 +1,13 @@
 [versions]
 # libraries
 annotations = "24.0.1"
-kotlin_coroutines_swing = "1.6.4"
-kotlin_reflect = "1.6.21"
+kotlin_coroutines = "1.8.0"
+kotlin_serialization = "1.6.3"
+
 ai_ollama = "1.0.63"
 
 # plugins
-kotlin = "1.9.0"
+kotlin = "1.9.21"
 changelog = "2.1.2"
 gradleIntelliJPlugin = "1.15.0"
 qodana = "0.1.13"
@@ -14,10 +15,10 @@ kover = "0.7.2"
 
 [libraries]
 ai_ollama = { module = "io.github.amithkoujalgi:ollama4j", version.ref = "ai_ollama" }
-
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
-kotlin_coroutines_swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin_coroutines_swing" }
-kotlin_reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin_reflect" }
+kotlin_coroutines_swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin_coroutines" }
+kotlin_coroutines_core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin_coroutines" }
+kotlin_serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin_serialization" }
 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
@@ -25,3 +26,4 @@ gradleIntelliJPlugin = { id = "org.jetbrains.intellij", version.ref = "gradleInt
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 qodana = { id = "org.jetbrains.qodana", version.ref = "qodana" }
+kotlin_serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

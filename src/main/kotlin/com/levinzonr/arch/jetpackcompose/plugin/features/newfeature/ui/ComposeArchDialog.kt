@@ -41,6 +41,14 @@ class ComposeArchDialog(
                 )
             }
 
+            row {
+                textArea()
+                    .bindText(viewModel::description)
+                    .align(Align.FILL)
+            }
+
+            row { comment("AI propmt") }
+
             group("Options") {
                 row {
                     checkBox("Also create package for the feature")
