@@ -9,6 +9,7 @@ import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.Featur
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlin.time.Duration.Companion.seconds
 
 class ComposeArchDialogViewModel(
     private val directory: PsiDirectory,
@@ -23,6 +24,7 @@ class ComposeArchDialogViewModel(
         get() = field.capitalize()
 
     val successFlow = MutableSharedFlow<Unit>()
+    val errorFlow = MutableSharedFlow<String>()
 
 
     var description: String = ""
@@ -34,9 +36,12 @@ class ComposeArchDialogViewModel(
         scope.launch {
             if (description.isNotBlank()) {
                 aiLoadingState.set(true)
-                val state = featureBreakdownGenerator.generate(name, description)
-                val breakdown = state.getOrNull()
-                generateFiles(breakdown)
+                featureBreakdownGenerator.generate(name, description)
+                    .onFailure { errorFlow.emit(it.message ?: "Unkown API Error") }
+                    .onSuccess { breakdown ->
+                        generateFiles(breakdown)
+                    }
+
             } else {
                 generateFiles(null)
             }

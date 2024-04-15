@@ -30,7 +30,11 @@ class OllamaGenerator(
                 .addLine(userPrompt)
             println("Ollamruns : ${settings.model}")
             val response = api.generate(settings.model, prompt.build(), OptionsBuilder().build())
-            AIResponse(response.response)
+            // ollama refuses to return json without code blocks
+            val trimmedResponse = response.response
+                .replace("```json", "")
+                .replace("```", "")
+            AIResponse(trimmedResponse)
         }
 
     }

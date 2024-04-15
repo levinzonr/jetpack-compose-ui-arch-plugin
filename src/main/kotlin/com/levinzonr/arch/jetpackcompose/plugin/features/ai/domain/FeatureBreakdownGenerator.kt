@@ -26,7 +26,7 @@ class FeatureBreakdownGenerator(
     suspend fun generate(name: String, userPrompt: String): Result<FeatureBreakdown> {
         return runCatching {
             val richUserPrompt = prompt(name, userPrompt)
-            val response = MockGenerator.generate(PROMPT_CORE, richUserPrompt)
+            val response = generator.generate(PROMPT_CORE, richUserPrompt)
             json.decodeFromString(FeatureBreakdown.serializer(), response.response)
         }
     }
@@ -67,7 +67,7 @@ class FeatureBreakdownGenerator(
 
         const val PROMPT_CORE = "" +
                 "Your job is to generated JSON file that would look like in this example: $JSON_EXAMPLE." +
-                "Only respond with the JSON content. Nothing else. RAW JSON: Omit ```json ``` thing " +
+                "Only respond with the JSON content. Nothing else. RAW JSON String, Not markdown: Omit ```json ``` thing " +
                 ""
 
         fun prompt(name: String, description: String) = "" +

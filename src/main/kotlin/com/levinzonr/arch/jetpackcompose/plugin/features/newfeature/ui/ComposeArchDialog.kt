@@ -4,6 +4,7 @@ import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.openapi.ui.Messages
 import com.intellij.ui.dsl.builder.*
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import com.levinzonr.arch.jetpackcompose.plugin.core.Links
@@ -12,6 +13,7 @@ import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 
 class ComposeArchDialog(
     private val viewModel: ComposeArchDialogViewModel,
@@ -25,6 +27,10 @@ class ComposeArchDialog(
             .onEach { close(0) }
             .launchIn(dialogScope)
         title = "New Jetpack Compose Feature"
+
+        viewModel.errorFlow
+            .onEach { Messages.showMessageDialog("Error", it, Messages.getErrorIcon()) }
+            .launchIn(dialogScope)
     }
 
     override fun createPanel(): DialogPanel {
