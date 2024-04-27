@@ -13,7 +13,7 @@ fun ${NAME}Screen(
 
 @Composable
 @Preview(name = "${NAME}")
-private fun ${NAME}ScreenPreview() {
+private fun ${NAME}ScreenPreview(#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true") @PreviewParameter(${NAME}StatePreviewParameterProvider::class) ${NAME}: ${NAME}State #end) {
     ${NAME}Screen(
         state = ${NAME}State(),
         actions = ${NAME}Actions()
