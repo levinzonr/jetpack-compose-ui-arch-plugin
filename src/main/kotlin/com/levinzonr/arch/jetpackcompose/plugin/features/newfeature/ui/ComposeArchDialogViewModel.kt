@@ -34,6 +34,7 @@ class ComposeArchDialogViewModel(
         val properties = mutableMapOf<String, Any>(
             PropertyKeys.Name to name,
             PropertyKeys.UseFlowWithLifecycle to config.useCollectFlowWithLifecycle,
+            PropertyKeys.UsePreviewParameterProvider to config.usePreviewParameterProvider,
             PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name
         )
         application.runWriteAction {
