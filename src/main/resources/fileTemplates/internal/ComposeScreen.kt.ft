@@ -2,6 +2,8 @@ package $PACKAGE_NAME
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")import androidx.compose.ui.tooling.preview.PreviewParameter
+#end
 
 @Composable
 fun ${NAME}Screen(
