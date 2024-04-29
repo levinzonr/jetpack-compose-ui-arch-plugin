@@ -4,7 +4,8 @@
 
 ## Unreleased
 
-# 1.2.0 - 2024-04-29
+## 1.2.0 - 2024-04-29
+
 ### Added
 - New Feature dialog now has an option to generate PreviewParametersProvider template for your State. You can toggle this option in the **More options** dialog (by @HanBI24)
 - PreviewParametersProvider template is now available in the Live Templates. Use `ppp` shortcut to generate a new PreviewParametersProvider template (by @HanBI24)
