@@ -34,6 +34,7 @@ class ComposeArchDialogViewModel(
         val properties = mutableMapOf<String, Any>(
             PropertyKeys.Name to name,
             PropertyKeys.UseFlowWithLifecycle to config.useCollectFlowWithLifecycle,
+            PropertyKeys.UsePreviewParameterProvider to config.usePreviewParameterProvider,
             PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name
         )
         application.runWriteAction {
@@ -43,6 +44,9 @@ class ComposeArchDialogViewModel(
             generator.generateKt("ComposeViewModel", "${name}ViewModel", featPackage, properties)
             generator.generateKt("ComposeCoordinator", "${name}Coordinator", featPackage, properties)
             generator.generateKt("ComposeRoute", "${name}Route", featPackage, properties)
+            if (properties[PropertyKeys.UsePreviewParameterProvider] == true) {
+                generator.generateKt("ComposeStatePreviewParameterProvider", "${name}StatePreviewParameterProvider", featPackage, properties)
+            }
 
             if (featPackage.findSubdirectory("components") == null) {
                 featPackage.createSubdirectory("components")

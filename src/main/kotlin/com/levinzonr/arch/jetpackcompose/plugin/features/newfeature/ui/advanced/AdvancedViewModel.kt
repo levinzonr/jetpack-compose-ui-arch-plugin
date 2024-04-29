@@ -14,6 +14,13 @@ class AdvancedViewModel(
             featureConfigurationRepository.put(current.copy(useCollectFlowWithLifecycle = value))
         }
 
+    var usePreviewParameterProvider: Boolean
+        get() = featureConfigurationRepository.get().usePreviewParameterProvider
+        set(value) {
+            val current = featureConfigurationRepository.get()
+            featureConfigurationRepository.put(current.copy(usePreviewParameterProvider = value))
+        }
+
 
     private var injectionConfig
         get() = featureConfigurationRepository.get().injection

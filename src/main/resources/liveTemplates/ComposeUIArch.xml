@@ -11,4 +11,14 @@
         </context>
     </template>
 
+    <template
+        name="ppp" value="@androidx.compose.ui.tooling.preview.PreviewParameterProvider&#10;class $NAME$StatePreviewParameterProvider : PreviewParameterProvider&#60;$NAME$State&#62; {&#10; override val values: Sequence&#60;$NAME$State&#62;&#10;get() = sequenceOf(&#10;&#10;)&#10;}"
+        description="Create a new PreviewParameterProvider"
+        toReformat="true"
+        toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true"/>
+        <context>
+            <option name="com.levinzonr.compose.livetemplate.context" value="true"/>
+        </context>
+    </template>
 </templateSet>

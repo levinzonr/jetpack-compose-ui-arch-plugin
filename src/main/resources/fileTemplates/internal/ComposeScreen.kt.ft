@@ -2,6 +2,8 @@ package $PACKAGE_NAME
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")import androidx.compose.ui.tooling.preview.PreviewParameter
+#end
 
 @Composable
 fun ${NAME}Screen(
@@ -11,6 +13,19 @@ fun ${NAME}Screen(
   // TODO UI Rendering
 }
 
+#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
+@Composable
+@Preview(name = "${NAME}")
+private fun ${NAME}ScreenPreview(
+    @PreviewParameter(${NAME}StatePreviewParameterProvider::class)
+    ${NAME}: ${NAME}State
+) {
+    ${NAME}Screen(
+        state = ${NAME}State(),
+        actions = ${NAME}Actions()
+    )
+}
+#else
 @Composable
 @Preview(name = "${NAME}")
 private fun ${NAME}ScreenPreview() {
@@ -19,4 +34,4 @@ private fun ${NAME}ScreenPreview() {
         actions = ${NAME}Actions()
     )
 }
-
+#end
