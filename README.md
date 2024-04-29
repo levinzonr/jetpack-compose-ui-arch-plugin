@@ -23,6 +23,7 @@ This dialog allows you to create several files related to Jetpack Compose UI Arc
   - `[FeatName]Coordinator` - Main State holder of the Screen, controls the screen UI logic and Interactions
   - `[FeatName]Route` - Main entry point, tied to `Coordinator` and delegates all the Actions to it, Emits Screen
   - `[FeatName]ViewModel` - Basic implementation of your ViewModel
+  - `[FeatName]StatePreviewParameterProvider` - Basic setup for the PreviewParameterProvider to use in Screen Preview (optional)
 
 
 ## Live Templates
@@ -40,7 +41,8 @@ This set of templates contains most commonly used layouts and effects that can b
 
 ### Compose UI Arch Live Templates
 Currently, has only one template, that operates similar to the New Component Dialog
-- `compon` -> Creates new Compose UI Component  with the `Modifier` as the parameter and a Preview
+- `compon` -> Creates new Compose UI Component  with the `Modifier` as the parameter and a Preview\
+- `ppp` -> Creates a new PreviewParameterProvider setup
 
 
 ## New Component Dialog
