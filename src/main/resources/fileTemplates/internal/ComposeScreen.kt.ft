@@ -13,12 +13,25 @@ fun ${NAME}Screen(
   // TODO UI Rendering
 }
 
+#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
 @Composable
 @Preview(name = "${NAME}")
-private fun ${NAME}ScreenPreview(#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true") @PreviewParameter(${NAME}StatePreviewParameterProvider::class) ${NAME}: ${NAME}State #end) {
+private fun ${NAME}ScreenPreview(
+    @PreviewParameter(${NAME}StatePreviewParameterProvider::class)
+    ${NAME}: ${NAME}State
+) {
     ${NAME}Screen(
         state = ${NAME}State(),
         actions = ${NAME}Actions()
     )
 }
-
+#else
+@Composable
+@Preview(name = "${NAME}")
+private fun ${NAME}ScreenPreview() {
+    ${NAME}Screen(
+        state = ${NAME}State(),
+        actions = ${NAME}Actions()
+    )
+}
+#end
