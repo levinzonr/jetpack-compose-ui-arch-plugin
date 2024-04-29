@@ -30,7 +30,7 @@ class AdvancedDialog(
                     checkBox("Use PreviewParameterProvider")
                         .bindSelected(viewModel::usePreviewParameterProvider)
                 }
-                row { comment("Add a PreviewParameterProvider that can be used in the Composable function.") }
+                row { comment("Also generate a PreviewParameterProvider to preview various States in a Screen component.") }
             }
             group("ViewModel Injection") {
                 buttonsGroup {
