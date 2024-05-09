@@ -18,10 +18,10 @@ fun ${NAME}Screen(
 @Preview(name = "${NAME}")
 private fun ${NAME}ScreenPreview(
     @PreviewParameter(${NAME}StatePreviewParameterProvider::class)
-    ${NAME}: ${NAME}State
+    state: ${NAME}State
 ) {
     ${NAME}Screen(
-        state = ${NAME}State(),
+        state = state,
         actions = ${NAME}Actions()
     )
 }
