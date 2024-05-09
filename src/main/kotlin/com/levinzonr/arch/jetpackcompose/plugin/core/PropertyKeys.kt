@@ -1,6 +1,8 @@
 package com.levinzonr.arch.jetpackcompose.plugin.core
 
 object PropertyKeys {
+    const val COORDINATOR_ACTIONS: String = "COORDINATOR_ACTIONS"
+    const val ACTIONS_HANDLERS: String = "ACTION_HANDLERS"
     const val PackageName = "PACKAGE_NAME"
     const val Name = "NAME"
     const val UseFlowWithLifecycle = "USE_FLOW_WITH_LIFECYCLE"

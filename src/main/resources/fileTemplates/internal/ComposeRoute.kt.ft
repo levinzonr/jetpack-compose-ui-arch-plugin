@@ -30,8 +30,14 @@ fun ${NAME}Route(
 @Composable
 fun remember${NAME}Actions(coordinator: ${NAME}Coordinator): ${NAME}Actions {
     return remember(coordinator) {
+#if (!${AI_USED})
         ${NAME}Actions(
             onClick = coordinator::doStuff
         )
+#else
+        ${NAME}Actions(
+            ${ACTION_HANDLERS}
+        )
+#end
     }
 }

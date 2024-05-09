@@ -1,0 +1,33 @@
+{
+  "properties": [
+    {
+      "name": "username",
+      "type": "String",
+      "defaultValue": ""
+    },
+    {
+      "name": "password",
+      "type": "String",
+        "defaultValue": ""
+    },
+    {
+      "name": "items",
+      "type": "List<String>",
+      "defaultValue": "emptyList()"
+    }
+  ],
+  "actions": [
+    {
+      "name": "onLoginClick",
+      "params": []
+    },
+    {
+      "name": "onForgotPasswordClick",
+      "params": []
+    },
+    {
+      "name": "onUsernameChange",
+      "params": ["String"]
+    }
+  ]
+}

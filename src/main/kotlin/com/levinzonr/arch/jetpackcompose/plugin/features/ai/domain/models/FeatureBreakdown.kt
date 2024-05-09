@@ -10,7 +10,8 @@ data class FeatureBreakdown(
 ) {
 
     val propertyStatements = properties.joinToString("\n") {
-        "val ${it.name}: ${it.type},"
+        val defaultValue = if (it.defaultValue == "") "\"\"" else it.defaultValue
+        "val ${it.name}: ${it.type} = ${defaultValue},"
     }
 
     val actionStatements= actions.joinToString("\n") {
@@ -18,10 +19,22 @@ data class FeatureBreakdown(
         "val ${it.name}: ($params) -> Unit = {},"
     }
 
+    val actionHandlers = actions.joinToString("\n") {
+        "${it.name} = coordinator::handle${it.name.drop(2)},"
+    }
+
+    val coordinatorActions = actions.joinToString("\n") {
+        val params = it.params.joinToString(",") {
+            "${it.lowercase()}: $it"
+        }
+        "fun handle${it.name.drop(2)}($params) { \n } "
+    }
+
     @Serializable
     data class StateProperties(
         val name: String,
-        val type: String
+        val type: String,
+        val defaultValue: String
     )
 
     @Serializable

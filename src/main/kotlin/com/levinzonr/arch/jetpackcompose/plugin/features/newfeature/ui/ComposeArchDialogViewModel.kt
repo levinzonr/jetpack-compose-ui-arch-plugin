@@ -57,9 +57,11 @@ class ComposeArchDialogViewModel(
             PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
             PropertyKeys.STATE_PROPS to breakdown?.propertyStatements.orEmpty(),
             PropertyKeys.ACTIONS to breakdown?.actionStatements.orEmpty(),
+            PropertyKeys.ACTIONS_HANDLERS to breakdown?.actionHandlers.orEmpty(),
             PropertyKeys.AI_USED to (breakdown != null),
             PropertyKeys.UsePreviewParameterProvider to config.usePreviewParameterProvider,
-            PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name
+            PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
+            PropertyKeys.COORDINATOR_ACTIONS to breakdown?.coordinatorActions.orEmpty()
         )
 
         invokeLater(ModalityState.defaultModalityState()) {
