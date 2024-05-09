@@ -4,10 +4,11 @@
 
 ## Unreleased
 
-
 ## 1.2.1 - 2024-05-09
+
 ### Changed
 - The `PreviewParameterProvider` is now generated as part of the Contract instead of the separate file. This will make it easier to manage the preview parameters and the contract in one place and feature will be less overloaded with files
+
 ### Fixed
 - Fixed the issue with the `PreviewParameterProvider` and its ppp template having unnecessary annotation and imports
 - Fixed the issue with `Screen` not having proper state used when PreviewParameterProvider generation is enabled
