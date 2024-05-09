@@ -1,5 +1,12 @@
 package ${PACKAGE_NAME}
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
+#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
+#end
+
 /**
  * UI State that represents ${NAME}Screen
 **/
@@ -22,3 +29,17 @@ data class ${NAME}Actions(
         val onClick: () -> Unit = {}
     #end
 )
+
+
+#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
+/**
+ * PreviewParameter Provider for ${NAME}Screen Preview
+ * Add values to the sequence to see the preview in different states
+**/
+class ${NAME}StatePreviewParameterProvider : PreviewParameterProvider<${NAME}State> {
+    override val values: Sequence<${NAME}State>
+        get() = sequenceOf(
+
+        )
+}
+#end

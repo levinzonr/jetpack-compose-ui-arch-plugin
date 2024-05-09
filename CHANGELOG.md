@@ -4,6 +4,21 @@
 
 ## Unreleased
 
+## 1.2.1 - 2024-05-09
+
+### Changed
+- The `PreviewParameterProvider` is now generated as part of the Contract instead of the separate file. This will make it easier to manage the preview parameters and the contract in one place and feature will be less overloaded with files
+
+### Fixed
+- Fixed the issue with the `PreviewParameterProvider` and its ppp template having unnecessary annotation and imports
+- Fixed the issue with `Screen` not having proper state used when PreviewParameterProvider generation is enabled
+
+## 1.2.0 - 2024-04-29
+
+### Added
+- New Feature dialog now has an option to generate PreviewParametersProvider template for your State. You can toggle this option in the **More options** dialog (by @HanBI24)
+- PreviewParametersProvider template is now available in the Live Templates. Use `ppp` shortcut to generate a new PreviewParametersProvider template (by @HanBI24)
+
 ## 1.1.3 - 2024-04-15
 
 ### Fixed

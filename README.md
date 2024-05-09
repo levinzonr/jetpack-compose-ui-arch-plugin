@@ -18,8 +18,8 @@ To learn more about the architecture and templates are based on it,  you can che
 ## New Feature Dialog
 This dialog allows you to create several files related to Jetpack Compose UI Architecture. After you provide a name for your feature, plugin will generate following:
 - `[featname]` - package (lowercased) (optional)
-  - `[FeatName]Contract` - contains UIState, Actions emitted from the UI layer
-  - `[FeatName]Screen` - Basic, stateless, UI of your Screen
+  - `[FeatName]Contract` - contains UIState, Actions emitted from the UI layer and PreviewParameterProvider (optional)
+  - `[FeatName]Screen` - Basic, stateless, UI of your Screen, if PreviewParameterProvider is enabled, it will be used to render the preview
   - `[FeatName]Coordinator` - Main State holder of the Screen, controls the screen UI logic and Interactions
   - `[FeatName]Route` - Main entry point, tied to `Coordinator` and delegates all the Actions to it, Emits Screen
   - `[FeatName]ViewModel` - Basic implementation of your ViewModel
@@ -40,7 +40,8 @@ This set of templates contains most commonly used layouts and effects that can b
 
 ### Compose UI Arch Live Templates
 Currently, has only one template, that operates similar to the New Component Dialog
-- `compon` -> Creates new Compose UI Component  with the `Modifier` as the parameter and a Preview
+- `compon` -> Creates new Compose UI Component  with the `Modifier` as the parameter and a Preview\
+- `ppp` -> Creates a new PreviewParameterProvider setup
 
 
 ## New Component Dialog

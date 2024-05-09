@@ -25,6 +25,13 @@ class AdvancedDialog(
                 }
                 row { comment("Collect the flow in the Route component in a lifecycle aware way") }
             }
+            group("Preview Parameter") {
+                row {
+                    checkBox("Use PreviewParameterProvider")
+                        .bindSelected(viewModel::usePreviewParameterProvider)
+                }
+                row { comment("Also generate a PreviewParameterProvider to preview various States in a Screen component.") }
+            }
             group("ViewModel Injection") {
                 buttonsGroup {
                     row {
