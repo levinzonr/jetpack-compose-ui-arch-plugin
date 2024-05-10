@@ -14,9 +14,8 @@ data class FeatureBreakdown(
         "val ${it.name}: ${it.type} = ${defaultValue},"
     }
 
-    val actionStatements= actions.joinToString("\n") {
-        val params = it.params.joinToString(",")
-        "val ${it.name}: ($params) -> Unit = {},"
+    val actionStatements = actions.joinToString("\n") {
+        "val ${it.name}: (${it.typedParams}) -> Unit = {},"
     }
 
     val actionHandlers = actions.joinToString("\n") {
@@ -24,23 +23,42 @@ data class FeatureBreakdown(
     }
 
     val coordinatorActions = actions.joinToString("\n") {
-        val params = it.params.joinToString(",") {
-            "${it.lowercase()}: $it"
+
+        if (it.type != Action.Type.Other) {
+            val params = it.params.joinToString(", ") { it.name }
+            """
+        fun handle${it.name.drop(2)}(${it.namedParams}) {
+            viewModel.${it.imperativeName}($params)
         }
-        "fun handle${it.name.drop(2)}($params) { \n } "
+       """
+        } else {
+            """
+        fun handle${it.name.drop(2)}() {
+            // handle ${it.imperativeName} action
+        }
+            """
+        }
     }
 
-    @Serializable
-    data class StateProperties(
-        val name: String,
-        val type: String,
-        val defaultValue: String
-    )
 
-    @Serializable
-    data class Action(
-        val name: String,
-        val params: List<String>
-    )
+    val viewModelActions = actions.filter { it.type != Action.Type.Other }.joinToString("\n") {
+        val params = it.namedParams
+        if (it.type == Action.Type.StateChange) {
+            val param = it.params.first().name
+            """
+                fun ${it.imperativeName}($params) { 
+                    _stateFlow.update { state -> 
+                        state.copy($param = $param)
+                    }
+                }
+            """.trimIndent()
+        } else
+            """
+          fun ${it.imperativeName}($params) {
+          }
+        """.trimIndent()
+    }
+
+
 }
 

@@ -20,7 +20,8 @@ data class FeatureProperties(
             PropertyKeys.AI_USED to (breakdown != null),
             PropertyKeys.UsePreviewParameterProvider to config.usePreviewParameterProvider,
             PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
-            PropertyKeys.COORDINATOR_ACTIONS to breakdown?.coordinatorActions.orEmpty()
+            PropertyKeys.COORDINATOR_ACTIONS to breakdown?.coordinatorActions.orEmpty(),
+            "VM_ACTIONS" to breakdown?.viewModelActions.orEmpty()
         )
     }
 }

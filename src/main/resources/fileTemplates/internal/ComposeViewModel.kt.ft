@@ -21,4 +21,9 @@ class ${NAME}ViewModel #if (${VIEW_MODEL_INJECTION} == "Hilt") @Inject construct
   
     val stateFlow: StateFlow<${NAME}State> = _stateFlow.asStateFlow()
 
+
+#if (${AI_USED} == "true")
+${VM_ACTIONS}
+#end
+
 }

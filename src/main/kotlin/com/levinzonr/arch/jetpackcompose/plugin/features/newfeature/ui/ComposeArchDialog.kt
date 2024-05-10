@@ -29,7 +29,7 @@ class ComposeArchDialog(
         title = "New Jetpack Compose Feature"
 
         viewModel.errorFlow
-            .onEach { Messages.showMessageDialog("Error", it, Messages.getErrorIcon()) }
+            .onEach { Messages.showMessageDialog(it, "Error",  Messages.getErrorIcon()) }
             .launchIn(dialogScope)
     }
 

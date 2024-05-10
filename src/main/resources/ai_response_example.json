@@ -19,15 +19,26 @@
   "actions": [
     {
       "name": "onLoginClick",
-      "params": []
+      "params": [],
+      "type": "domain",
+      "imperativeName": "login"
     },
     {
       "name": "onForgotPasswordClick",
-      "params": []
+      "params": [],
+      "type": "other",
+      "imperativeName": "forgotPassword"
     },
     {
       "name": "onUsernameChange",
-      "params": ["String"]
+      "params": [
+        {
+          "name": "username",
+          "type": "String"
+        }
+      ],
+      "type": "state_change",
+      "imperativeName": "changeUsername"
     }
   ]
 }

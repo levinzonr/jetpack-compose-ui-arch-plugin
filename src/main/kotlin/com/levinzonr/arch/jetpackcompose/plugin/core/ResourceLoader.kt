@@ -70,3 +70,14 @@ class IntellijIdeaResourceLoader {
         return null
     }
 }
+
+
+inline fun <reified T> T.loadResource(filePath: String): InputStream? {
+    return IntellijIdeaResourceLoader().getResourceAsStream(T::class.java, filePath)
+}
+
+inline fun <reified T> T.loadStringResource(filePath: String): String? {
+    return loadResource(filePath)
+        ?.readAllBytes()
+        ?.toString(Charsets.UTF_8)
+}
