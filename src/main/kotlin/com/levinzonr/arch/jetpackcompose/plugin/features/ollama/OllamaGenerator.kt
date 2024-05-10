@@ -3,7 +3,6 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.ollama
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.Dependencies
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.AIGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.AIResponse
-import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.OllamaSettings
 import io.github.amithkoujalgi.ollama4j.core.OllamaAPI
 import io.github.amithkoujalgi.ollama4j.core.utils.OptionsBuilder
 import io.github.amithkoujalgi.ollama4j.core.utils.PromptBuilder

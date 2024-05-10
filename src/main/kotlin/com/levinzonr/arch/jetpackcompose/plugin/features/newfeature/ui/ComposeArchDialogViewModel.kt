@@ -6,10 +6,10 @@ import com.intellij.psi.PsiDirectory
 import com.levinzonr.arch.jetpackcompose.plugin.core.*
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.FeatureBreakdownGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.FeatureBreakdown
-import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.repository.FeatureConfigurationRepository
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.FeatureProperties
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlin.time.Duration.Companion.seconds
 
 class ComposeArchDialogViewModel(
     private val directory: PsiDirectory,
@@ -51,18 +51,7 @@ class ComposeArchDialogViewModel(
     private fun generateFiles(breakdown: FeatureBreakdown?) {
         val config = repository.get()
         println(breakdown)
-        val properties = mutableMapOf<String, Any>(
-            PropertyKeys.Name to name,
-            PropertyKeys.UseFlowWithLifecycle to config.useCollectFlowWithLifecycle,
-            PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
-            PropertyKeys.STATE_PROPS to breakdown?.propertyStatements.orEmpty(),
-            PropertyKeys.ACTIONS to breakdown?.actionStatements.orEmpty(),
-            PropertyKeys.ACTIONS_HANDLERS to breakdown?.actionHandlers.orEmpty(),
-            PropertyKeys.AI_USED to (breakdown != null),
-            PropertyKeys.UsePreviewParameterProvider to config.usePreviewParameterProvider,
-            PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
-            PropertyKeys.COORDINATOR_ACTIONS to breakdown?.coordinatorActions.orEmpty()
-        )
+        val properties = FeatureProperties(name, config, breakdown).toProperties()
 
         invokeLater(ModalityState.defaultModalityState()) {
             runWriteAction {

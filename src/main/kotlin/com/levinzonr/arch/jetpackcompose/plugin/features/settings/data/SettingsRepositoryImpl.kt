@@ -1,7 +1,7 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.settings.data
 
 import com.levinzonr.arch.jetpackcompose.plugin.core.persistence.PreferencesDataSource
-import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.OllamaSettings
+import com.levinzonr.arch.jetpackcompose.plugin.features.ollama.OllamaSettings
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.Settings
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.SettingsRepository
 
