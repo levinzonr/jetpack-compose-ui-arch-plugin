@@ -37,10 +37,11 @@ class FeatureBreakdownGenerator(
 
     companion object {
 
-        fun prompt_core(json: String) = "" +
-                "Your job is to generated JSON file that would look like in this example: $json." +
-                "Only respond with the JSON content. Nothing else. RAW JSON String, Not markdown: Omit ```json ``` thing " +
-                ""
+        fun prompt_core(json: String) = """ 
+                Your job is to generated JSON file that would look like in this example: $json. "
+                Only respond with the JSON content. Nothing else. RAW JSON String, Not markdown: Omit ```json ``` thing "
+          
+                """
 
         fun prompt(name: String, description: String) = """ 
                 Generate a JSON string that will act as feature breakdown for a feature called $name" 
@@ -59,7 +60,7 @@ class FeatureBreakdownGenerator(
                  Provide empty array of parameters in case its a simple click interaction on a button" 
                 Actions should also have a type which is a string value and can be one of the following:" 
                 - domain - domain type means that this action should be handled by the external component or system such as database or an API service (examples: login)" 
-                - state_change - this type of action only affects the state of the feature, examples: password value change in text field" 
+                - state_change - this type of action only affects the state of the feature, examples: password value change in text field. This actions should always come with an appropriate parameter that resembles a new value of the state" 
                 - other - this type of action is for any other type of action that does not fit into the above categories such as navigation" 
                  Next each action should have an imperativeName form, it will be used in ViewModels, such as: changePassword or login" 
 

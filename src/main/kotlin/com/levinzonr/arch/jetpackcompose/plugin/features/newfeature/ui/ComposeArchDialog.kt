@@ -2,12 +2,18 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui
 
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.options.ShowSettingsUtil
+import com.intellij.openapi.progress.ProgressIndicator
+import com.intellij.openapi.progress.ProgressManager
+import com.intellij.openapi.progress.Task
+import com.intellij.openapi.progress.util.ProgressWindow
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.openapi.ui.Messages
 import com.intellij.ui.dsl.builder.*
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import com.levinzonr.arch.jetpackcompose.plugin.core.Links
+import com.levinzonr.arch.jetpackcompose.plugin.core.ProgressDialog
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedDialog
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedViewModel
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings
@@ -20,6 +26,13 @@ class ComposeArchDialog(
     private val advancedViewModel: AdvancedViewModel
 ) : BaseDialog() {
 
+
+    val progressDialog = ProgressDialog(
+        "Waiting for AI to respond",
+        "Longer query might take longer time, Please stand by"
+    )
+
+
     init {
         init()
         viewModel
@@ -29,9 +42,25 @@ class ComposeArchDialog(
         title = "New Jetpack Compose Feature"
 
         viewModel.errorFlow
-            .onEach { Messages.showMessageDialog(it, "Error",  Messages.getErrorIcon()) }
+            .onEach {
+                Messages.showMessageDialog(it, "Error",  Messages.getErrorIcon())
+                repaint()
+            }
             .launchIn(dialogScope)
+
+
+        viewModel.loadingFlow
+            .onEach {
+                println("$it")
+               if (it) {
+                   progressDialog.show()
+               } else {
+                   progressDialog.hide()
+               }
+            }.launchIn(dialogScope)
+
     }
+
 
     override fun createPanel(): DialogPanel {
         return panel {
@@ -71,11 +100,6 @@ class ComposeArchDialog(
                         .bindText(viewModel::description)
                         .align(Align.FILL)
                 }
-
-
-                row {
-                    label("Waiting for AI to respond...")
-                }.visibleIf(viewModel.aiLoadingState)
             }
 
 

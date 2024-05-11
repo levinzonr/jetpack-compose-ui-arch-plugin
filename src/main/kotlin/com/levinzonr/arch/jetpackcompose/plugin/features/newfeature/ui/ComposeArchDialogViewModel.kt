@@ -25,23 +25,22 @@ class ComposeArchDialogViewModel(
 
     val successFlow = MutableSharedFlow<Unit>()
     val errorFlow = MutableSharedFlow<String>()
-
+    val loadingFlow = MutableSharedFlow<Boolean>()
 
     var description: String = ""
 
     var createFeaturePackage: Boolean = true
-    val aiLoadingState = ObservableValue(false)
 
     fun onOkButtonClick() {
         scope.launch {
             if (description.isNotBlank()) {
-                aiLoadingState.set(true)
+                loadingFlow.emit(true)
                 featureBreakdownGenerator.generate(name, description)
                     .onFailure { errorFlow.emit(it.message ?: "Unkown API Error") }
                     .onSuccess { breakdown ->
                         generateFiles(breakdown)
                     }
-
+                loadingFlow.emit(false)
             } else {
                 generateFiles(null)
             }

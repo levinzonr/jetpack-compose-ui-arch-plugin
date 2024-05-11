@@ -43,8 +43,8 @@ data class FeatureBreakdown(
 
     val viewModelActions = actions.filter { it.type != Action.Type.Other }.joinToString("\n") {
         val params = it.namedParams
-        if (it.type == Action.Type.StateChange) {
-            val param = it.params.first().name
+        val param = it.params.firstOrNull()?.name
+        if (it.type == Action.Type.StateChange && param != null) {
             """
                 fun ${it.imperativeName}($params) { 
                     _stateFlow.update { state -> 
