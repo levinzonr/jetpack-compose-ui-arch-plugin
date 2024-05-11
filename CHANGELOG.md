@@ -4,6 +4,18 @@
 
 ## Unreleased
 
+## 1.3.0 - 2024-05-11
+
+This release features an integration with Generative AI to build more tailored content when creating Jetpack Compose Features. 
+
+Ollama AI will be the first AI client to be integrated with the plugin. Ollama AI is a powerful AI that can generate code snippets, classes, and even whole features based on the provided prompt.
+With this integration, you can now provide a prompt for the feature you want to create and the AI will generate the feature template for you.
+
+### Added
+- Plugin now has a dedicated settings page where you can configure the AI client, as a stepping stone right now we only support Ollama AI.
+- New Feature Dialog now has a Prompt field. By using this prompt your basic feature template will be enhanced with some methods and calls prefilled based on your use case
+- Checkout our README for a more detailed description of the integration and how to use it
+
 ## 1.2.1 - 2024-05-09
 
 ### Changed
