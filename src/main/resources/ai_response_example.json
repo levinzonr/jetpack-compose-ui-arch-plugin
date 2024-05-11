@@ -1,0 +1,44 @@
+{
+  "properties": [
+    {
+      "name": "username",
+      "type": "String",
+      "defaultValue": ""
+    },
+    {
+      "name": "password",
+      "type": "String",
+        "defaultValue": ""
+    },
+    {
+      "name": "items",
+      "type": "List<String>",
+      "defaultValue": "emptyList()"
+    }
+  ],
+  "actions": [
+    {
+      "name": "onLoginClick",
+      "params": [],
+      "type": "domain",
+      "imperativeName": "login"
+    },
+    {
+      "name": "onForgotPasswordClick",
+      "params": [],
+      "type": "other",
+      "imperativeName": "forgotPassword"
+    },
+    {
+      "name": "onUsernameChange",
+      "params": [
+        {
+          "name": "username",
+          "type": "String"
+        }
+      ],
+      "type": "state_change",
+      "imperativeName": "changeUsername"
+    }
+  ]
+}

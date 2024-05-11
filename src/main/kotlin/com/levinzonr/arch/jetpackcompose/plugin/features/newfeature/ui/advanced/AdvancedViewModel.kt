@@ -1,7 +1,7 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced
 
-import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.FeatureConfigurationRepository
-import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.InjectionConfiguration
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.repository.FeatureConfigurationRepository
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.InjectionConfiguration
 
 class AdvancedViewModel(
     private val featureConfigurationRepository: FeatureConfigurationRepository

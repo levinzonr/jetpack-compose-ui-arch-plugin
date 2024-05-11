@@ -25,6 +25,27 @@ This dialog allows you to create several files related to Jetpack Compose UI Arc
   - `[FeatName]ViewModel` - Basic implementation of your ViewModel
 
 
+
+### AI Integration
+Starting with version 1.30 the plugin now has a dedicated settings page where you can configure the AI client. As a stepping stone right now, we only support Ollama AI. The New Feature Dialog now has a Prompt field. By using this prompt, your basic feature template will be enhanced with some methods and calls prefilled based on your use case.
+Here is a quick example of how it works:
+
+> Prerequisite: You need to have an Ollama model hosted somewhere. You can use the Ollama CLI to host the model on your local machine or use the Ollama cloud service.
+
+#### Configure AI Client
+1. Go to `Settings/Preferences | Tools | Jetpack Compose UI Arch Plugin` / Alternatively, you can use the search bar in the settings and type `Jetpack Compose UI Arch Plugin` or open this dialog from new Feature Dialog
+2. Specify the URL where your Ollama model is hosted
+3. Specify the model name, the default model name is `codegemma`, this model is recommended
+4. (Optional) Specify the timeout. 
+5. Click Apply and then `Test Connection` to verify the connection
+
+#### Using AI in New Feature Dialog
+To new feature dialog, you will see a new field called `Prompt`. Here you can specify a prompt for the AI model. The AI model will generate the feature template based on this prompt.
+By leaving the prompt empty, you will get the default feature template.
+
+The prompt can be anything really, but the recommended way would to provide the short description and element you expect from your UI.
+For example, given you are creating a login screen you can type: `username, password, loading state`
+
 ## Live Templates
 Along with the templates provided with the Dialogs, this plugin also provides several live templates. There are currently two groups of Live Templates available: Compose Foundation and UI Arch
 

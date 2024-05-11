@@ -1,6 +1,8 @@
-package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain
+package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.repository
 
 import com.levinzonr.arch.jetpackcompose.plugin.core.persistence.PreferencesDataSource
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.FeatureConfiguration
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.InjectionConfiguration
 
 class FeatureConfigurationRepository(
     private val dataSource: PreferencesDataSource

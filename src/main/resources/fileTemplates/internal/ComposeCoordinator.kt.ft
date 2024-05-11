@@ -15,9 +15,13 @@ class ${NAME}Coordinator(
 ) {
     val screenStateFlow = viewModel.stateFlow
 
+    #if (${AI_USED} == "true")
+    ${COORDINATOR_ACTIONS}
+    #else
     fun doStuff() {
         // TODO Handle UI Action
     }
+    #end
 }
 
 @Composable

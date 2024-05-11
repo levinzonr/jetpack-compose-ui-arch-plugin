@@ -6,7 +6,6 @@ import com.intellij.ui.dsl.builder.bindSelected
 import com.intellij.ui.dsl.builder.panel
 import com.levinzonr.arch.jetpackcompose.plugin.core.BaseDialog
 import com.levinzonr.arch.jetpackcompose.plugin.features.feedback.feedbackActions
-import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.InjectionConfiguration
 
 class AdvancedDialog(
     private val viewModel: AdvancedViewModel

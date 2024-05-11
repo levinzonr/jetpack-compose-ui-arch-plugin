@@ -10,14 +10,24 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 /**
  * UI State that represents ${NAME}Screen
 **/
-class ${NAME}State
+#if (!${AI_USED})
+    class ${NAME}State
+#else
+    data class ${NAME}State(
+        ${STATE_PROPS}
+    )
+#end
 
 /**
  * ${NAME} Actions emitted from the UI Layer
  * passed to the coordinator to handle
 **/
 data class ${NAME}Actions(
-    val onClick: () -> Unit = {}
+    #if (${AI_USED})
+        ${ACTIONS}
+    #else
+        val onClick: () -> Unit = {}
+    #end
 )
 
 
