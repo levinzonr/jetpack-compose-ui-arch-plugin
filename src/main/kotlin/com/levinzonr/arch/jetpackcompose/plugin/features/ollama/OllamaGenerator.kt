@@ -18,7 +18,7 @@ class OllamaGenerator(
 
     init {
         api.setVerbose(true)
-        api.setRequestTimeoutSeconds(35)
+        api.setRequestTimeoutSeconds(settings.timeoutSeconds)
     }
 
     override suspend fun generate(ruleset: String, userPrompt: String): AIResponse {

@@ -28,6 +28,11 @@ class SettingsViewModel(
             newSettings = newSettings.copy(ollama = newSettings.ollama.copy(model = value))
         }
 
+    var timeoutSeconds: Int
+        get() = newSettings.ollama.timeoutSeconds.toInt()
+        set(value) {
+            newSettings = newSettings.copy(ollama = newSettings.ollama.copy(timeoutSeconds = value.toLong()))
+        }
 
     fun reset() {
         newSettings = settings

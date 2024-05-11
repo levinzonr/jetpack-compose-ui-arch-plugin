@@ -6,10 +6,7 @@ import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.DialogPanel
-import com.intellij.ui.dsl.builder.DEFAULT_COMMENT_WIDTH
-import com.intellij.ui.dsl.builder.bindText
-import com.intellij.ui.dsl.builder.panel
-import com.intellij.ui.dsl.builder.whenTextChangedFromUi
+import com.intellij.ui.dsl.builder.*
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.injection.SettingsViewModelFactory
 import javax.swing.JComponent
 
@@ -47,6 +44,12 @@ class PluginSettings : Configurable {
                         textField()
                             .bindText(viewModel::model)
                     }
+
+                    row("Timeout in seconds") {
+                        intTextField()
+                            .bindIntText(viewModel::timeoutSeconds)
+                    }
+
                     row {
                         button(
                             text = "Test connection (needs to applied first)",
@@ -56,6 +59,8 @@ class PluginSettings : Configurable {
                         text(text = "")
                             .bindText(viewModel.ollamaConnectionStatus)
                     }
+
+
 
                 }
             }
