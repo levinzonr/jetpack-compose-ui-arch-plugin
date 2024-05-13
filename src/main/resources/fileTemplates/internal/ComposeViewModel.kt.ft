@@ -9,7 +9,7 @@ import javax.inject.Inject
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-if (${AI_USED} == "true")
+#if (${AI_USED} == "true")
 import kotlinx.coroutines.flow.update
 #end
 
