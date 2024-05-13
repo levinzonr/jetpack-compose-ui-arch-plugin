@@ -27,7 +27,7 @@ This dialog allows you to create several files related to Jetpack Compose UI Arc
 
 
 ### AI Integration
-Starting with version 1.30 the plugin now has a dedicated settings page where you can configure the AI client. As a stepping stone right now, we only support Ollama AI. The New Feature Dialog now has a Prompt field. By using this prompt, your basic feature template will be enhanced with some methods and calls prefilled based on your use case.
+Starting with version 1.3.0 the plugin now has a dedicated settings page where you can configure the AI client. As a stepping stone right now, we only support Ollama AI. The New Feature Dialog now has a Prompt field. By using this prompt, your basic feature template will be enhanced with some methods and calls prefilled based on your use case.
 Here is a quick example of how it works:
 
 > Prerequisite: You need to have an Ollama model hosted somewhere. You can use the Ollama CLI to host the model on your local machine or use the Ollama cloud service.
