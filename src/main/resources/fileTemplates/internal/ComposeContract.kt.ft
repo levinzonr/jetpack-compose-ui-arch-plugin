@@ -1,8 +1,6 @@
 package ${PACKAGE_NAME}
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.staticCompositionLocalOf
 #if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 #end
@@ -10,7 +8,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 /**
  * UI State that represents ${NAME}Screen
 **/
-#if (!${AI_USED})
+#if (!${AI_USED} == "true")
     class ${NAME}State
 #else
     data class ${NAME}State(
@@ -23,7 +21,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
  * passed to the coordinator to handle
 **/
 data class ${NAME}Actions(
-    #if (${AI_USED})
+    #if (${AI_USED} == true)
         ${ACTIONS}
     #else
         val onClick: () -> Unit = {}

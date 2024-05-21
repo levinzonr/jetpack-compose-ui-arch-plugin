@@ -49,9 +49,7 @@ class ComposeArchDialogViewModel(
 
     private fun generateFiles(breakdown: FeatureBreakdown?) {
         val config = repository.get()
-        println(breakdown)
         val properties = FeatureProperties(name, config, breakdown).toProperties()
-
         invokeLater(ModalityState.defaultModalityState()) {
             runWriteAction {
                 val featPackage =
