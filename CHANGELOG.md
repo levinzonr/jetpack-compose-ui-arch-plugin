@@ -9,7 +9,6 @@
 ### Fixed
 - Fixed New Feature Generation when not using the AI client
 
-
 ## 1.3.0 - 2024-05-11
 This release features an integration with Generative AI to build more tailored content when creating Jetpack Compose Features.
 
