@@ -64,6 +64,18 @@ class PluginSettings : Configurable {
 
                 }
             }
+
+            group("Navigation") {
+                row {
+                    text("Configure the navigation settings for the plugin")
+                }
+                row("Navigation Class Suffix") {
+                    textField()
+                        .bindText(viewModel::navSuffix)
+
+                    text("fx: Home${viewModel.navSuffix}")
+                }
+            }
         }
 
         return dialogPanel

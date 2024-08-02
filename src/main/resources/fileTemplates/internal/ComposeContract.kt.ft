@@ -4,11 +4,24 @@ import androidx.compose.runtime.Composable
 #if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 #end
+#if ($NAVIGATION_ENABLED == "true")
+import com.kiwi.navigationcompose.typed.Destination
+import kotlinx.serialization.Serializable
+#end
+
+#if ($NAVIGATION_ENABLED == "true")
+/**
+ * Object used for a type safe destination to a Home screen
+ */
+@Serializable
+object ${NAME}${NAVIGATION_CLASS_SUFFIX} : Destination
+#end
+
 
 /**
  * UI State that represents ${NAME}Screen
 **/
-#if (!${AI_USED} == "true")
+#if (${AI_USED} == "false")
     class ${NAME}State
 #else
     data class ${NAME}State(

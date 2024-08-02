@@ -20,7 +20,8 @@ object ComposeArchDialogViewModelFactory {
             repository = ExperimentalFeaturesRepositoryFactory.create(dependencies),
             editorManager = dependencies.editor,
             application = dependencies.application,
-            featureBreakdownGenerator = FeatureBreakdownGenerator(OllamaGenerator(settings.get().ollama))
+            featureBreakdownGenerator = FeatureBreakdownGenerator(OllamaGenerator(settings.get().ollama)),
+            settingsRepository = settings
         )
     }
 }

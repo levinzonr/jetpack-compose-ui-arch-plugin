@@ -22,6 +22,12 @@ class SettingsViewModel(
     var ollamaConnectionStatus = ObservableValue("")
 
 
+    var navSuffix: String
+        get() = newSettings.navigationSettings.classSuffix
+        set(value) {
+            newSettings = newSettings.copy(navigationSettings = newSettings.navigationSettings.copy(classSuffix = value))
+        }
+
     var model: String
         get() = newSettings.ollama.model
         set(value) {

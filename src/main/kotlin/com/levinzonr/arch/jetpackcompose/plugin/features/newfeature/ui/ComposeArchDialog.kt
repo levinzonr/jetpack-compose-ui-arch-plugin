@@ -109,6 +109,12 @@ class ComposeArchDialog(
                     checkBox("Also create package for the feature")
                         .bindSelected(viewModel::createFeaturePackage)
 
+
+                }
+
+                row {
+                    checkBox("Create Navigation code")
+                        .bindSelected(viewModel::createNavigationCode)
                 }
 
                 row {

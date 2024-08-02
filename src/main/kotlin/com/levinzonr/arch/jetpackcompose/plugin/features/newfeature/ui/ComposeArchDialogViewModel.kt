@@ -8,6 +8,7 @@ import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.FeatureBreakd
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.FeatureBreakdown
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.repository.FeatureConfigurationRepository
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.FeatureProperties
+import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.SettingsRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
 
@@ -17,7 +18,8 @@ class ComposeArchDialogViewModel(
     private val repository: FeatureConfigurationRepository,
     private val editorManager: FileEditorManager,
     private val application: Application,
-    private val featureBreakdownGenerator: FeatureBreakdownGenerator
+    private val featureBreakdownGenerator: FeatureBreakdownGenerator,
+    private val settingsRepository: SettingsRepository
 ) : BaseViewModel() {
 
     var name: String = ""
@@ -30,6 +32,7 @@ class ComposeArchDialogViewModel(
     var description: String = ""
 
     var createFeaturePackage: Boolean = true
+    var createNavigationCode: Boolean = false
 
     fun onOkButtonClick() {
         scope.launch {
@@ -49,7 +52,9 @@ class ComposeArchDialogViewModel(
 
     private fun generateFiles(breakdown: FeatureBreakdown?) {
         val config = repository.get()
-        val properties = FeatureProperties(name, config, breakdown).toProperties()
+        val settings = settingsRepository.get()
+        val properties = FeatureProperties(
+            name, config, breakdown, settings.navigationSettings, createNavigationCode).toProperties()
         invokeLater(ModalityState.defaultModalityState()) {
             runWriteAction {
                 val featPackage =
