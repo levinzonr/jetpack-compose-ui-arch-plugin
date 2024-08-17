@@ -5,9 +5,9 @@
 ## Unreleased
 
 ## 1.3.2 - 2024-08-17
+
 ### Added
 - Added support for the latest IDE versions
-
 
 ## 1.3.1 - 2024-05-21
 
