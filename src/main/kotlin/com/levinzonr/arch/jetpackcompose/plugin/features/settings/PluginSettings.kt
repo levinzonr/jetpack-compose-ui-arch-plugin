@@ -69,7 +69,16 @@ class PluginSettings : Configurable {
                 row {
                     text("Configure the navigation settings for the plugin")
                 }
-                row("Navigation Class Suffix") {
+
+                row("Navigation Type") {
+                    radioButton("Kiwi")
+                        .bindSelected(viewModel::kiwiEnabled)
+
+                    radioButton("Compose Destinations")
+                        .bindSelected(viewModel::composeDestinationsEnabled)
+                }
+
+                row("Navigation Name Suffix") {
                     textField()
                         .bindText(viewModel::navSuffix)
 

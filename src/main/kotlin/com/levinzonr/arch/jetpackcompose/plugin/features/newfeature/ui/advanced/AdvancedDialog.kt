@@ -44,6 +44,14 @@ class AdvancedDialog(
                 }
             }
 
+            group("Navigation Type") {
+                buttonsGroup {
+                    row {
+                        radioButton("Compose Navigation")
+                    }
+                }
+            }
+
             group {
                 row {
                     text(
