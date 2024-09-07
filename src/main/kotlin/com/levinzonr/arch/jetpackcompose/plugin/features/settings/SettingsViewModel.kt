@@ -23,27 +23,6 @@ class SettingsViewModel(
     var ollamaConnectionStatus = ObservableValue("")
 
 
-    var navSuffix: String
-        get() = newSettings.navigationSettings.classSuffix
-        set(value) {
-            newSettings =
-                newSettings.copy(navigationSettings = newSettings.navigationSettings.copy(classSuffix = value))
-        }
-
-    var kiwiEnabled: Boolean
-        get() = newSettings.navigationSettings.type == NavigationSettings.NavigationType.Kiwi
-        set(value) {
-            newSettings =
-                newSettings.copy(navigationSettings = newSettings.navigationSettings.copy(type = if (value) NavigationSettings.NavigationType.Kiwi else NavigationSettings.NavigationType.ComposeDestinations))
-        }
-
-    var composeDestinationsEnabled: Boolean
-        get() = newSettings.navigationSettings.type == NavigationSettings.NavigationType.ComposeDestinations
-        set(value) {
-            newSettings =
-                newSettings.copy(navigationSettings = newSettings.navigationSettings.copy(type = if (value) NavigationSettings.NavigationType.ComposeDestinations else NavigationSettings.NavigationType.Kiwi))
-        }
-
     var model: String
         get() = newSettings.ollama.model
         set(value) {

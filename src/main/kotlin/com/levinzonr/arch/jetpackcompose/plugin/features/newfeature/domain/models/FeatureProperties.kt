@@ -8,7 +8,6 @@ data class FeatureProperties(
     val name: String,
     val config: FeatureConfiguration,
     val breakdown: FeatureBreakdown?,
-    val navSettings: NavigationSettings,
     val createNavigationCode: Boolean,
 ) {
 
@@ -25,8 +24,9 @@ data class FeatureProperties(
             PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
             PropertyKeys.COORDINATOR_ACTIONS to breakdown?.coordinatorActions.orEmpty(),
             PropertyKeys.NAVIGATION_ENABLED to createNavigationCode,
-            PropertyKeys.NAVIGATION_CLASS_SUFFIX to navSettings.classSuffix,
-            "VM_ACTIONS" to breakdown?.viewModelActions.orEmpty()
+            PropertyKeys.NAVIGATION_CLASS_SUFFIX to "Destination",
+            "VM_ACTIONS" to breakdown?.viewModelActions.orEmpty(),
+            "NAV_TYPE" to config.navigationType.name,
         )
     }
 }

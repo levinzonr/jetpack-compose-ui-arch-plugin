@@ -64,27 +64,6 @@ class PluginSettings : Configurable {
 
                 }
             }
-
-            group("Navigation") {
-                row {
-                    text("Configure the navigation settings for the plugin")
-                }
-
-                row("Navigation Type") {
-                    radioButton("Kiwi")
-                        .bindSelected(viewModel::kiwiEnabled)
-
-                    radioButton("Compose Destinations")
-                        .bindSelected(viewModel::composeDestinationsEnabled)
-                }
-
-                row("Navigation Name Suffix") {
-                    textField()
-                        .bindText(viewModel::navSuffix)
-
-                    text("fx: Home${viewModel.navSuffix}")
-                }
-            }
         }
 
         return dialogPanel
