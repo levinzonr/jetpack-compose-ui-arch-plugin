@@ -7,5 +7,6 @@ data class FeatureConfiguration(
     val useCollectFlowWithLifecycle: Boolean,
     val usePreviewParameterProvider: Boolean,
     val injection: InjectionConfiguration,
-    val navigationType: NavigationType
+    val navigationType: NavigationType,
+    val actionsType: ActionsType
 )

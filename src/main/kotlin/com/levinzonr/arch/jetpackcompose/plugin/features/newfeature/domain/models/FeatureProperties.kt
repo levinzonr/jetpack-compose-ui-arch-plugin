@@ -27,6 +27,9 @@ data class FeatureProperties(
             PropertyKeys.NAVIGATION_CLASS_SUFFIX to "Destination",
             "VM_ACTIONS" to breakdown?.viewModelActions.orEmpty(),
             "NAV_TYPE" to config.navigationType.name,
+            "ACTIONS_TYPE" to config.actionsType.name,
+            "COORDINATOR_HANDLERS" to breakdown?.coordinatorHandlers(name).orEmpty(),
+            "SEALED_ACTIONS" to breakdown?.actionsHandlers(name).orEmpty()
         )
     }
 }

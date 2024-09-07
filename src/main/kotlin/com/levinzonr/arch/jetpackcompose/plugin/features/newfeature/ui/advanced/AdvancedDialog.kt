@@ -17,6 +17,12 @@ class AdvancedDialog(
 
     override fun createPanel(): DialogPanel {
         return panel {
+
+            row {
+                rowComment("Configure advanced settings for the feature" +
+                        "settings will be persisted for the current project.")
+            }
+
             group("State Collection") {
                 row {
                     checkBox("Use collectAsStateWithLifecycle")
@@ -55,6 +61,31 @@ class AdvancedDialog(
                         radioButton("Compose Destinations")
                             .bindSelected(viewModel::composeDestinationsSetter)
                     }
+
+                }
+            }
+
+            group("Actions Provider") {
+                buttonsGroup {
+
+                    row {
+                        radioButton("Data Class")
+                            .bindSelected(viewModel::dataClassActionsSetter)
+                    }
+
+                    row {
+                        comment("All actions will be generated as data classes (default)")
+                    }
+
+                    row {
+                        radioButton("Sealed Interface")
+                            .bindSelected(viewModel::sealedActionsSetter)
+                    }
+
+                    row {
+                        comment("Actions will be generated as a sealed interface i.e LoginAction.UsernameChange")
+                    }
+
 
                 }
             }

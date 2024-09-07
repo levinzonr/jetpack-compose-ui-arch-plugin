@@ -8,7 +8,11 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun ${NAME}Screen(
     state: ${NAME}State,
-    actions: ${NAME}Actions,
+    #if (${ACTIONS_TYPE} == "Data")
+    actions: ${NAME}Actions
+    #else
+    onAction: (${NAME}Action) -> Unit
+    #end
 ) {
   // TODO UI Rendering
 }
@@ -22,7 +26,11 @@ private fun ${NAME}ScreenPreview(
 ) {
     ${NAME}Screen(
         state = state,
+        #if (${ACTIONS_TYPE} == "Data")
         actions = ${NAME}Actions()
+        #else
+        onAction = {}
+        #end
     )
 }
 #else
@@ -31,7 +39,11 @@ private fun ${NAME}ScreenPreview(
 private fun ${NAME}ScreenPreview() {
     ${NAME}Screen(
         state = ${NAME}State(),
+        #if (${ACTIONS_TYPE} == "Data")
         actions = ${NAME}Actions()
+        #else
+        onAction = {}
+        #end
     )
 }
 #end
