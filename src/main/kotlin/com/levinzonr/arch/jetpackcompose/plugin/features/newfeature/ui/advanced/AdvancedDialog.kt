@@ -1,5 +1,6 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced
 
+import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.dsl.builder.DEFAULT_COMMENT_WIDTH
 import com.intellij.ui.dsl.builder.bindSelected
@@ -58,9 +59,46 @@ class AdvancedDialog(
                     }
 
                     row {
+                        link("https://github.com/kiwicom/navigation-compose-typed") {
+                            BrowserUtil.open("https://github.com/kiwicom/navigation-compose-typed")
+                        }
+                    }
+
+                    row {
                         radioButton("Compose Destinations")
                             .bindSelected(viewModel::composeDestinationsSetter)
                     }
+
+                    row {
+                        link("https://github.com/raamcosta/compose-destinations") {
+                            BrowserUtil.open("https://github.com/raamcosta/compose-destinations")
+                        }
+                    }
+
+                }
+            }
+
+            group("Actions Provider") {
+                buttonsGroup {
+
+                    row {
+                        radioButton("Data Class")
+                            .bindSelected(viewModel::dataClassActionsSetter)
+                    }
+
+                    row {
+                        comment("All actions will be generated as data classes (default)")
+                    }
+
+                    row {
+                        radioButton("Sealed Interface")
+                            .bindSelected(viewModel::sealedActionsSetter)
+                    }
+
+                    row {
+                        comment("Actions will be generated as a sealed interface i.e LoginAction.UsernameChange")
+                    }
+
 
                 }
             }

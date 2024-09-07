@@ -18,12 +18,18 @@ To learn more about the architecture and templates are based on it,  you can che
 ## New Feature Dialog
 This dialog allows you to create several files related to Jetpack Compose UI Architecture. After you provide a name for your feature, plugin will generate following:
 - `[featname]` - package (lowercased) (optional)
-  - `[FeatName]Contract` - contains UIState, Actions emitted from the UI layer and PreviewParameterProvider (optional)
+  - `[FeatName]Contract` - contains UIState, Actions emitted from the UI layer, PreviewParameterProvider (optional) and Destination for a Route (optional)
   - `[FeatName]Screen` - Basic, stateless, UI of your Screen, if PreviewParameterProvider is enabled, it will be used to render the preview
   - `[FeatName]Coordinator` - Main State holder of the Screen, controls the screen UI logic and Interactions
-  - `[FeatName]Route` - Main entry point, tied to `Coordinator` and delegates all the Actions to it, Emits Screen
+  - `[FeatName]Route` - Main entry point, tied to `Coordinator` and delegates all the Actions to it, Emits Screen. Optionally can contain navigation code
   - `[FeatName]ViewModel` - Basic implementation of your ViewModel
 
+### Advanced Options Dialog
+The dialog also provides several options to customize the generated code, can be accessed by using "More Options" button when creating new feature
+- **Preview Parameter Provider** - If enabled, the plugin will generate a `PreviewParameterProvider` for you. This will allow you to provide different states to your preview
+- **Navigation Type** - Allows you to choose between [Navigation Compose Typed](https://github.com/kiwicom/navigation-compose-typed) and [Compose Destinations](https://github.com/raamcosta/compose-destinations) to generate the navigation code in the Route/Contract file
+- **ViewModel Injection** - Allows you to configure DI for your ViewModel. Hilt and Koin are supported
+- **Actions Type** - Allows you to choose between `Sealed Class` and `Data Class` for the Actions in the Contract file
 
 
 ### AI Integration
