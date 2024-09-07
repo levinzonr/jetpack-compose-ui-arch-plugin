@@ -1,5 +1,6 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced
 
+import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.dsl.builder.DEFAULT_COMMENT_WIDTH
 import com.intellij.ui.dsl.builder.bindSelected
@@ -58,8 +59,20 @@ class AdvancedDialog(
                     }
 
                     row {
+                        link("https://github.com/kiwicom/navigation-compose-typed") {
+                            BrowserUtil.open("https://github.com/kiwicom/navigation-compose-typed")
+                        }
+                    }
+
+                    row {
                         radioButton("Compose Destinations")
                             .bindSelected(viewModel::composeDestinationsSetter)
+                    }
+
+                    row {
+                        link("https://github.com/raamcosta/compose-destinations") {
+                            BrowserUtil.open("https://github.com/raamcosta/compose-destinations")
+                        }
                     }
 
                 }
