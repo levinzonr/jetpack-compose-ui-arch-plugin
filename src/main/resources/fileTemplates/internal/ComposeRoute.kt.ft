@@ -6,10 +6,20 @@ import androidx.compose.runtime.collectAsState
 #end
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+
+#if (${NAVIGATION_ENABLED} == "true" && ${NAV_TYPE} == "ComposeDestinations")
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
+#end
+
 #if (${USE_FLOW_WITH_LIFECYCLE} == "true")
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 #end
 
+
+#if (${NAVIGATION_ENABLED} == "true" && ${NAV_TYPE} == "ComposeDestinations")
+@Destination<RootGraph>
+#end
 @Composable
 fun ${NAME}Route(
     coordinator: ${NAME}Coordinator = remember${NAME}Coordinator()

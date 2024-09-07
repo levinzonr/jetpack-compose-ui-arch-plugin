@@ -2,11 +2,13 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.mode
 
 import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.FeatureBreakdown
+import com.levinzonr.arch.jetpackcompose.plugin.features.navigation.NavigationSettings
 
 data class FeatureProperties(
     val name: String,
     val config: FeatureConfiguration,
-    val breakdown: FeatureBreakdown?
+    val breakdown: FeatureBreakdown?,
+    val createNavigationCode: Boolean,
 ) {
 
     fun toProperties(): MutableMap<String, Any> {
@@ -21,7 +23,10 @@ data class FeatureProperties(
             PropertyKeys.UsePreviewParameterProvider to config.usePreviewParameterProvider,
             PropertyKeys.VIEW_MODEL_INJECTION to config.injection.name,
             PropertyKeys.COORDINATOR_ACTIONS to breakdown?.coordinatorActions.orEmpty(),
-            "VM_ACTIONS" to breakdown?.viewModelActions.orEmpty()
+            PropertyKeys.NAVIGATION_ENABLED to createNavigationCode,
+            PropertyKeys.NAVIGATION_CLASS_SUFFIX to "Destination",
+            "VM_ACTIONS" to breakdown?.viewModelActions.orEmpty(),
+            "NAV_TYPE" to config.navigationType.name,
         )
     }
 }

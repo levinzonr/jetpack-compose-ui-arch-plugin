@@ -11,4 +11,6 @@ object PropertyKeys {
     const val STATE_PROPS = "STATE_PROPS"
     const val ACTIONS = "ACTIONS"
     const val AI_USED = "AI_USED"
+    const val NAVIGATION_ENABLED = "NAVIGATION_ENABLED"
+    const val NAVIGATION_CLASS_SUFFIX = "NAVIGATION_CLASS_SUFFIX"
 }

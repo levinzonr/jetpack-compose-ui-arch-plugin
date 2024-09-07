@@ -1,5 +1,6 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced
 
+import com.levinzonr.arch.jetpackcompose.plugin.features.navigation.NavigationType
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.repository.FeatureConfigurationRepository
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.InjectionConfiguration
 
@@ -28,6 +29,24 @@ class AdvancedViewModel(
             featureConfigurationRepository.update { it.copy(injection = value) }
         }
 
+    private var navigationType: NavigationType
+        get() = featureConfigurationRepository.get().navigationType
+        set(value) {
+            featureConfigurationRepository.put(featureConfigurationRepository.get().copy(navigationType = value))
+        }
+
+
+    var kiwiSetter: Boolean
+        get() = navigationType == NavigationType.Kiwi
+        set(value) {
+            if (value) navigationType = NavigationType.Kiwi
+        }
+
+    var composeDestinationsSetter: Boolean
+        get() = navigationType == NavigationType.ComposeDestinations
+        set(value) {
+            if (value) navigationType = NavigationType.ComposeDestinations
+        }
 
     var koinSetter: Boolean
         get() = injectionConfig == InjectionConfiguration.Koin
@@ -42,5 +61,7 @@ class AdvancedViewModel(
         set(value) {
             if (value) injectionConfig = InjectionConfiguration.Hilt
         }
+
+
 
 }

@@ -44,6 +44,21 @@ class AdvancedDialog(
                 }
             }
 
+            group("Navigation Type") {
+                buttonsGroup {
+                    row {
+                        radioButton("Kiwi Compose Navigation Typed")
+                            .bindSelected(viewModel::kiwiSetter)
+                    }
+
+                    row {
+                        radioButton("Compose Destinations")
+                            .bindSelected(viewModel::composeDestinationsSetter)
+                    }
+
+                }
+            }
+
             group {
                 row {
                     text(
