@@ -30,13 +30,30 @@ fun ${NAME}Route(
     #end
 
     // UI Actions
+	#if (${ACTIONS_TYPE} == "Data")
     val actions = remember${NAME}Actions(coordinator)
+    #end
+    #if (${ACTIONS_TYPE} == "Sealed")
+    val actionsHandler: (${NAME}Action) -> Unit = { action ->
+		coordinator.handle(action)
+	}
+	#end
 
+	#if (${ACTIONS_TYPE} == "Data")
     // UI Rendering
     ${NAME}Screen(uiState, actions)
+    #end
+    #if (${ACTIONS_TYPE} == "Sealed")
+    // UI Rendering
+    ${NAME}Screen(
+    	state = uiState,
+    	onAction = actionsHandler
+    )
+    #end
 }
 
 
+#if (${ACTIONS_TYPE} == "Data")
 @Composable
 fun remember${NAME}Actions(coordinator: ${NAME}Coordinator): ${NAME}Actions {
     return remember(coordinator) {
@@ -51,3 +68,4 @@ fun remember${NAME}Actions(coordinator: ${NAME}Coordinator): ${NAME}Actions {
 #end
     }
 }
+#end

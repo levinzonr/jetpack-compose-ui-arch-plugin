@@ -32,6 +32,7 @@ object ${NAME}${NAVIGATION_CLASS_SUFFIX} : Destination
  * ${NAME} Actions emitted from the UI Layer
  * passed to the coordinator to handle
 **/
+#if (${ACTIONS_TYPE} == "Data")
 data class ${NAME}Actions(
     #if (${AI_USED} == true)
         ${ACTIONS}
@@ -39,7 +40,17 @@ data class ${NAME}Actions(
         val onClick: () -> Unit = {}
     #end
 )
+#end
 
+#if (${ACTIONS_TYPE} == "Sealed")
+sealed interface ${NAME}Action {
+	#if (${AI_USED} == true)
+		${ACTIONS}
+	#else
+		data object OnClick : ${NAME}Action
+	#end
+}
+#end
 
 #if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
 /**

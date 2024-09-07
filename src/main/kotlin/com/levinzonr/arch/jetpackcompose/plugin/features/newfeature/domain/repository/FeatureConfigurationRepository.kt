@@ -2,6 +2,7 @@ package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.repo
 
 import com.levinzonr.arch.jetpackcompose.plugin.core.persistence.PreferencesDataSource
 import com.levinzonr.arch.jetpackcompose.plugin.features.navigation.NavigationType
+import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.ActionsType
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.FeatureConfiguration
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models.InjectionConfiguration
 
@@ -25,7 +26,8 @@ class FeatureConfigurationRepository(
             useCollectFlowWithLifecycle = dataSource.get(KEY_FLOW_LIFECYCLE, true),
             usePreviewParameterProvider = dataSource.get(KEY_PREVIEW_PARAMETER_PROVIDER, true),
             injection = InjectionConfiguration.valueOf(injection),
-            navigationType = NavigationType.valueOf(navigationType)
+            navigationType = NavigationType.valueOf(navigationType),
+            actionsType = ActionsType.Sealed
         )
     }
 

@@ -16,20 +16,24 @@ class TemplateGenerator(private val project: Project) {
             directory: PsiDirectory,
             properties: MutableMap<String,Any>
     ) : PsiFile {
+        try {
 
-        val existing = directory.findFile("${fileName}.kt")
-        if (existing != null) return existing
+            val existing = directory.findFile("${fileName}.kt")
+            if (existing != null) return existing
 
 
-        val manager = FileTemplateManager.getInstance(project)
-        val template = manager.getInternalTemplate(templateName)
-        properties[PropertyKeys.PackageName] = requireNotNull(directory.getPackageName())
-        return FileTemplateUtil.createFromTemplate(
+            val manager = FileTemplateManager.getInstance(project)
+            val template = manager.getInternalTemplate(templateName)
+            properties[PropertyKeys.PackageName] = requireNotNull(directory.getPackageName())
+            return FileTemplateUtil.createFromTemplate(
                 template,
                 "${fileName}.kt",
                 properties.toProperties(),
                 directory
-        ) as PsiFile
+            ) as PsiFile
+        } catch (e: Exception) {
+            throw IllegalStateException("Failed to generate file $fileName", e)
+        }
     }
 
     private fun PsiDirectory.getPackageName(): String? {
