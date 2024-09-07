@@ -45,7 +45,7 @@ data class ${NAME}Actions(
 #if (${ACTIONS_TYPE} == "Sealed")
 sealed interface ${NAME}Action {
 	#if (${AI_USED} == true)
-		${ACTIONS}
+		${SEALED_ACTIONS}
 	#else
 		data object OnClick : ${NAME}Action
 	#end

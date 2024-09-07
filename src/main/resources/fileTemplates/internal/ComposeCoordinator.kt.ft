@@ -14,16 +14,22 @@ class ${NAME}Coordinator(
     val viewModel: ${NAME}ViewModel
 ) {
     val screenStateFlow = viewModel.stateFlow
-    #if (${ACTIONS_TYPE} == "Sealed")
+    #if (${ACTIONS_TYPE} == "Sealed" && ${AI_USED} == "false")
     fun handle(action: ${NAME}Action) {
 		when (action) {
 			${NAME}Action.OnClick -> { /* Handle action */ }
 		}
 	}
 	#end
-	#if (${AI_USED} == "true")
+
+	#if (${ACTIONS_TYPE} == "Sealed" && ${AI_USED} == "true")
+	${COORDINATOR_HANDLERS}
+	#end
+
+	#if (${AI_USED} == "true" && ${ACTIONS_TYPE} == "Data")
         ${COORDINATOR_ACTIONS}
-        #end
+    #end
+
 
 }
 
