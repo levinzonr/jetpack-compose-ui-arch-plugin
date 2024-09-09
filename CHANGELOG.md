@@ -12,7 +12,6 @@
 - Remove unnecessary Composable import from contract template
 - Fix UI for the Advanced Options Dialog
 
-
 ## 1.4.0 - 2024-09-07
 
 ### Added
