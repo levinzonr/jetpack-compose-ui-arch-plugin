@@ -103,31 +103,6 @@ class AdvancedDialog(
                 }
             }
 
-            group("Actions Provider") {
-                buttonsGroup {
-
-                    row {
-                        radioButton("Data Class")
-                            .bindSelected(viewModel::dataClassActionsSetter)
-                    }
-
-                    row {
-                        comment("All actions will be generated as data classes (default)")
-                    }
-
-                    row {
-                        radioButton("Sealed Interface")
-                            .bindSelected(viewModel::sealedActionsSetter)
-                    }
-
-                    row {
-                        comment("Actions will be generated as a sealed interface i.e LoginAction.UsernameChange")
-                    }
-
-
-                }
-            }
-
             group {
                 row {
                     text(
