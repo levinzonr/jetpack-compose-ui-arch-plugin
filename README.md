@@ -38,6 +38,9 @@ Here is a quick example of how it works:
 
 > Prerequisite: You need to have an Ollama model hosted somewhere. You can use the Ollama CLI to host the model on your local machine or use the Ollama cloud service.
 
+[![Watch the video](https://img.youtube.com/vi/YsNlym0g0HU/default.jpg)](https://youtu.be/YsNlym0g0HU)
+
+
 #### Configure AI Client
 1. Go to `Settings/Preferences | Tools | Jetpack Compose UI Arch Plugin` / Alternatively, you can use the search bar in the settings and type `Jetpack Compose UI Arch Plugin` or open this dialog from new Feature Dialog
 2. Specify the URL where your Ollama model is hosted
