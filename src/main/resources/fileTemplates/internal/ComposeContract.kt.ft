@@ -52,15 +52,3 @@ sealed interface ${NAME}Action {
 }
 #end
 
-#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
-/**
- * PreviewParameter Provider for ${NAME}Screen Preview
- * Add values to the sequence to see the preview in different states
-**/
-class ${NAME}StatePreviewParameterProvider : PreviewParameterProvider<${NAME}State> {
-    override val values: Sequence<${NAME}State>
-        get() = sequenceOf(
-
-        )
-}
-#end
