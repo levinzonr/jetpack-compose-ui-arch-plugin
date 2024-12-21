@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 
 #if ($NAVIGATION_ENABLED == "true" && $NAV_TYPE == "Kiwi")
 /**
- * Object used for a type safe destination to a Home screen
+ * Object used for a type safe destination to a ${NAME} route
  */
 @Serializable
 object ${NAME}${NAVIGATION_CLASS_SUFFIX} : Destination
