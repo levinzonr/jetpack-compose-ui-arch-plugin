@@ -55,6 +55,12 @@ class AdvancedViewModel(
             if (value) navigationType = NavigationType.ComposeDestinations
         }
 
+    var jetpackNavSetter: Boolean
+        get() = navigationType == NavigationType.Jetpack
+        set(value) {
+            if (value) navigationType = NavigationType.Jetpack
+        }
+
     var koinSetter: Boolean
         get() = injectionConfig == InjectionConfiguration.Koin
         set(value) {

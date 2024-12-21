@@ -53,6 +53,18 @@ class AdvancedDialog(
 
             group("Navigation Type") {
                 buttonsGroup {
+
+                    row {
+                        radioButton("Jetpack Navigation")
+                            .bindSelected(viewModel::jetpackNavSetter)
+                    }
+
+                    row {
+                        link("https://developer.android.com/guide/navigation/design/type-safety") {
+                            BrowserUtil.open("https://developer.android.com/guide/navigation/design/type-safety")
+                        }
+                    }
+
                     row {
                         radioButton("Kiwi Compose Navigation Typed")
                             .bindSelected(viewModel::kiwiSetter)
