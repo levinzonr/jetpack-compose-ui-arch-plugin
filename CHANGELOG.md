@@ -4,6 +4,17 @@
 
 ## Unreleased
 
+## 1.5.0 - 2024-12-21
+
+### Added
+- Support Jetpack Compose Type-Safe Navigation Generation option
+
+### Changed
+- Preview Parameter Provider is now generated as part of the Screen template instead of the Contract. This makes it easier to build new previews for the screen without switching between files
+
+### Fixed
+- Fixed the issue of comments for Destination contract having hardcoded destination name
+
 ## 1.4.2 - 2024-09-19
 
 ### Added
