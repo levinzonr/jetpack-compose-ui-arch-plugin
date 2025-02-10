@@ -12,7 +12,7 @@
     </template>
 
     <template
-        name="ppp" value="class androidx.compose.ui.tooling.preview.PreviewParameterProvider.$NAME$PreviewParameterProvider : PreviewParameterProvider&#60;$NAME$&#62; {&#10; override val values: Sequence&#60;$NAME$&#62;&#10;get() = sequenceOf(&#10;&#10;)&#10;}"
+        name="ppp" value="class $NAME$PreviewParameterProvider : androidx.compose.ui.tooling.preview.PreviewParameterProvider&#60;$NAME$&#62; {&#10; override val values: Sequence&#60;$NAME$&#62;&#10;get() = sequenceOf(&#10;&#10;)&#10;}"
         description="Create a new PreviewParameterProvider"
         toReformat="true"
         toShortenFQNames="true">
