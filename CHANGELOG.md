@@ -4,6 +4,11 @@
 
 ## Unreleased
 
+## 1.5.1 - 2025-02-10
+
+### Fixed
+- Fixed the issue with PreviewParameterProvider template (`ppp`)
+
 ## 1.5.0 - 2024-12-21
 
 ### Added
