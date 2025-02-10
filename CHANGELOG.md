@@ -25,7 +25,6 @@
 ### Added
 - Support for the latest IDE versions
 
-
 ## 1.4.1 - 2024-09-09
 - Added [Navigation Compose Typed](https://github.com/kiwicom/navigation-compose-typed) and [Compose Destinations](https://github.com/kiwicom/navigation-compose-typed) as the navigation options in the New Feature Dialog. This will generate the navigation code in the Route/Contract file based on the selected option. You can configure this in the Advanced Options Dialog. The code will be generated based on the selected navigation library if the option is enabled
 - Added Sealed Class and Data Class as the Actions Type options in the New Feature Dialog. This will allow you to choose between `Sealed Class` and `Data Class` for the Actions in the Contract file. You can configure this in the Advanced Options Dialog
