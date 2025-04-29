@@ -11,6 +11,8 @@ import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.model
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.SettingsRepository
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableSharedFlow
+import java.util.Locale
+import java.util.Locale.getDefault
 
 class ComposeArchDialogViewModel(
     private val directory: PsiDirectory,
@@ -23,7 +25,7 @@ class ComposeArchDialogViewModel(
 ) : BaseViewModel() {
 
     var name: String = ""
-        get() = field.capitalize()
+        get() = field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(getDefault()) else it.toString() }
 
     val successFlow = MutableSharedFlow<Unit>()
     val errorFlow = MutableSharedFlow<String>()

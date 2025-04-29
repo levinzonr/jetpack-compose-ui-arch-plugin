@@ -6,13 +6,15 @@ import com.levinzonr.arch.jetpackcompose.plugin.core.BaseViewModel
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
+import java.util.Locale
+import java.util.Locale.getDefault
 
 class ComposeComponentViewModel(
         private val directory: PsiDirectory,
         private val projectDependencies: ProjectDependencies
 ) : BaseViewModel(){
     var name: String = ""
-        get() = field.capitalize()
+        get() = field.replaceFirstChar { if (it.isLowerCase()) it.titlecase(getDefault()) else it.toString() }
     val successFlow = MutableSharedFlow<Unit>()
 
     fun onOkButtonClick() {
