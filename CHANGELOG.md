@@ -4,6 +4,11 @@
 
 ## Unreleased
 
+## 1.5.3 - 2025-05-04
+
+### Added
+- Support for the latest IDE versions
+
 ## 1.5.2 - 2025-04-9
 
 ### Added
