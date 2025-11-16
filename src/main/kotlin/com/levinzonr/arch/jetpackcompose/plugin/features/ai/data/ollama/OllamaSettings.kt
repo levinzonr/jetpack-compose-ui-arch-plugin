@@ -1,4 +1,4 @@
-package com.levinzonr.arch.jetpackcompose.plugin.features.ollama
+package com.levinzonr.arch.jetpackcompose.plugin.features.ai.data.ollama
 
 data class OllamaSettings(
     val host: String = "http://localhost:11434/",

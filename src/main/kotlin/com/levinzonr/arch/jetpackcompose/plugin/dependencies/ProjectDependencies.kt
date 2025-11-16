@@ -6,10 +6,12 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.project.Project
 import com.levinzonr.arch.jetpackcompose.plugin.core.TemplateGenerator
+import com.levinzonr.arch.jetpackcompose.plugin.core.persistence.PreferencesDataSourceImpl
+import com.levinzonr.arch.jetpackcompose.plugin.features.settings.data.SettingsRepositoryImpl
+import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.SettingsRepository
 
 class ProjectDependencies(val project: Project?) {
     val generator = TemplateGenerator(project!!)
     val editor: FileEditorManager = FileEditorManager.getInstance(project!!)
     val properties: PropertiesComponent = PropertiesComponent.getInstance(project!!)
-    val application: Application = ApplicationManager.getApplication()
 }

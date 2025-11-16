@@ -1,13 +1,13 @@
 [versions]
 # libraries
 annotations = "24.0.1"
-kotlin_coroutines = "1.8.0"
+kotlin_coroutines = "1.10.2"
 kotlin_serialization = "1.6.3"
 
 ai_ollama = "1.0.63"
 
 # plugins
-kotlin = "1.9.21"
+kotlin = "2.2.0"
 changelog = "2.1.2"
 gradleIntelliJPlugin = "1.15.0"
 qodana = "0.1.13"
@@ -15,6 +15,7 @@ kover = "0.7.2"
 
 [libraries]
 ai_ollama = { module = "io.github.amithkoujalgi:ollama4j", version.ref = "ai_ollama" }
+ai_openai = { module =  "com.openai:openai-java", version = "4.8.0" }
 annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
 kotlin_coroutines_swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin_coroutines" }
 kotlin_coroutines_core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin_coroutines" }

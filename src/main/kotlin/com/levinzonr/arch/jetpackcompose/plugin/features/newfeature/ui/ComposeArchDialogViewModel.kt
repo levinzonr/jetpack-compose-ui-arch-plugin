@@ -19,9 +19,7 @@ class ComposeArchDialogViewModel(
     private val generator: TemplateGenerator,
     private val repository: FeatureConfigurationRepository,
     private val editorManager: FileEditorManager,
-    private val application: Application,
     private val featureBreakdownGenerator: FeatureBreakdownGenerator,
-    private val settingsRepository: SettingsRepository
 ) : BaseViewModel() {
 
     var name: String = ""

@@ -1,4 +1,4 @@
-package com.levinzonr.arch.jetpackcompose.plugin.features.ollama
+package com.levinzonr.arch.jetpackcompose.plugin.features.ai.data.ollama
 
 import com.levinzonr.arch.jetpackcompose.plugin.dependencies.Dependencies
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.AIGenerator
@@ -27,7 +27,6 @@ class OllamaGenerator(
                 .add(ruleset)
                 .addSeparator()
                 .addLine(userPrompt)
-            println("Ollamruns : ${settings.model}")
             val response = api.generate(settings.model, prompt.build(), OptionsBuilder().build())
             // ollama refuses to return json without code blocks
             val trimmedResponse = response.response
