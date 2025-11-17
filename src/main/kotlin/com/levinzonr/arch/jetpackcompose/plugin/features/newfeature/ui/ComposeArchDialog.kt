@@ -16,7 +16,7 @@ import com.levinzonr.arch.jetpackcompose.plugin.core.Links
 import com.levinzonr.arch.jetpackcompose.plugin.core.ProgressDialog
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedDialog
 import com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.ui.advanced.AdvancedViewModel
-import com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings
+import com.levinzonr.arch.jetpackcompose.plugin.features.settings.AISettingsConfigurable
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
@@ -91,7 +91,10 @@ class ComposeArchDialog(
                         maxLineLength = DEFAULT_COMMENT_WIDTH
                     )
                     link("⚙\uFE0F Configure") {
-                        PluginSettings.open()
+                        ShowSettingsUtil.getInstance().showSettingsDialog(
+                            ProjectManager.getInstance().defaultProject,
+                            AISettingsConfigurable::class.java
+                        )
                     }
                 }
                 row {

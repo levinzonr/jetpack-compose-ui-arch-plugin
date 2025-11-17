@@ -1,7 +1,11 @@
 package ${PACKAGE_NAME}
 
 import androidx.compose.foundation.layout.Box
+#if (${UI_LIBRARY_TYPE} == "Material3")
+import androidx.compose.material3.Text
+#else
 import androidx.compose.material.Text
+#end
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview

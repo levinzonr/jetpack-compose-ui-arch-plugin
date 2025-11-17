@@ -13,4 +13,5 @@ object PropertyKeys {
     const val AI_USED = "AI_USED"
     const val NAVIGATION_ENABLED = "NAVIGATION_ENABLED"
     const val NAVIGATION_CLASS_SUFFIX = "NAVIGATION_CLASS_SUFFIX"
+    const val UI_LIBRARY_TYPE = "UI_LIBRARY_TYPE"
 }

@@ -7,6 +7,8 @@ import com.levinzonr.arch.jetpackcompose.plugin.features.ai.data.openai.OpenAISe
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.AIClientType
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.Settings
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.SettingsRepository
+import com.levinzonr.arch.jetpackcompose.plugin.features.ui.UILibrarySettings
+import com.levinzonr.arch.jetpackcompose.plugin.features.ui.UILibraryType
 
 class SettingsRepositoryImpl(
     private val dataSource: PreferencesDataSource
@@ -32,11 +34,18 @@ class SettingsRepositoryImpl(
 
         val navSuffix = dataSource.get(KEY_NAV_SUFFIX, default.navigationSettings.classSuffix)
 
+        val uiLibraryType = try {
+            UILibraryType.valueOf(dataSource.get(KEY_UI_LIBRARY_TYPE, default.uiLibrarySettings.type.name))
+        } catch (e: IllegalArgumentException) {
+            default.uiLibrarySettings.type
+        }
+
         return Settings(
             selectedAIClient = selectedAIClient,
             ollama = OllamaSettings(host, model, timeout),
             openai = OpenAISettings(openaiApiKey, openaiTimeout, openaiModelId, openaiHost),
-            navigationSettings = NavigationSettings(navSuffix)
+            navigationSettings = NavigationSettings(navSuffix),
+            uiLibrarySettings = UILibrarySettings(uiLibraryType)
         )
     }
 
@@ -53,6 +62,8 @@ class SettingsRepositoryImpl(
         dataSource.put(KEY_OPENAI_HOST, settings.openai.host)
         
         dataSource.put(KEY_NAV_SUFFIX, settings.navigationSettings.classSuffix)
+        
+        dataSource.put(KEY_UI_LIBRARY_TYPE, settings.uiLibrarySettings.type.name)
     }
 
     companion object {
@@ -68,5 +79,7 @@ class SettingsRepositoryImpl(
         private const val KEY_OPENAI_HOST = "settings:openai:host"
 
         private const val KEY_NAV_SUFFIX = "settings:navigation:suffix"
+
+        private const val KEY_UI_LIBRARY_TYPE = "settings:ui:libraryType"
     }
 }

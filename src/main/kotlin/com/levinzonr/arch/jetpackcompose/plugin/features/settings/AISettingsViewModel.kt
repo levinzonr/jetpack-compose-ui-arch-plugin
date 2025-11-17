@@ -7,22 +7,21 @@ import com.levinzonr.arch.jetpackcompose.plugin.features.ai.data.ollama.OllamaGe
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.data.openai.OpenAiGenerator
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.AIClientType
 import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.SettingsRepository
-import com.openai.client.OpenAIClient
 import kotlinx.coroutines.launch
 
-class SettingsViewModel(
+class AISettingsViewModel(
     private val settingsRepository: SettingsRepository
 ) : BaseViewModel() {
 
     private val settings = settingsRepository.get()
     private var newSettings = settings
+
     var clientType: AIClientType
         get() = newSettings.selectedAIClient
         set(value) {
             newSettings = newSettings.copy(selectedAIClient = value)
-            println("Set: $value")
-            println(newSettings)
         }
+
 
     var host: String
         get() = newSettings.ollama.host
@@ -30,9 +29,7 @@ class SettingsViewModel(
             newSettings = newSettings.copy(ollama = newSettings.ollama.copy(host = value))
         }
 
-
     var ollamaConnectionStatus = ObservableValue("")
-
 
     var model: String
         get() = newSettings.ollama.model
@@ -78,9 +75,7 @@ class SettingsViewModel(
     }
 
     fun apply() {
-        println("Applu")
         settingsRepository.set(newSettings)
-        println(settingsRepository.get())
     }
 
     fun testOllamaConnection() {
@@ -110,5 +105,4 @@ class SettingsViewModel(
             }
         }
     }
-
 }
