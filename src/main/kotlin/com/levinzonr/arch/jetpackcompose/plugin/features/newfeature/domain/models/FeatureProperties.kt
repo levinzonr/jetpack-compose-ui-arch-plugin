@@ -1,6 +1,7 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.newfeature.domain.models
 
 import com.levinzonr.arch.jetpackcompose.plugin.core.PropertyKeys
+import com.levinzonr.arch.jetpackcompose.plugin.dependencies.PluginDependencies
 import com.levinzonr.arch.jetpackcompose.plugin.features.ai.domain.models.FeatureBreakdown
 import com.levinzonr.arch.jetpackcompose.plugin.features.navigation.NavigationSettings
 
@@ -12,6 +13,7 @@ data class FeatureProperties(
 ) {
 
     fun toProperties(): MutableMap<String, Any> {
+        val settings = PluginDependencies.settings.get()
         return mutableMapOf(
             PropertyKeys.Name to name,
             PropertyKeys.UseFlowWithLifecycle to config.useCollectFlowWithLifecycle,
@@ -25,6 +27,7 @@ data class FeatureProperties(
             PropertyKeys.COORDINATOR_ACTIONS to breakdown?.coordinatorActions.orEmpty(),
             PropertyKeys.NAVIGATION_ENABLED to createNavigationCode,
             PropertyKeys.NAVIGATION_CLASS_SUFFIX to "Destination",
+            PropertyKeys.UI_LIBRARY_TYPE to settings.uiLibrarySettings.type.name,
             "VM_ACTIONS" to breakdown?.viewModelActions.orEmpty(),
             "NAV_TYPE" to config.navigationType.name,
             "ACTIONS_TYPE" to config.actionsType.name,

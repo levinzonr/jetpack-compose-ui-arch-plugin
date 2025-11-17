@@ -1,9 +1,23 @@
 package $PACKAGE_NAME
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 #if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
+#end
+#if (${UI_LIBRARY_TYPE} == "Material3")
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.SmallTopBar
+#else
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 #end
 @Composable
 fun ${NAME}Screen(
@@ -14,7 +28,23 @@ fun ${NAME}Screen(
     onAction: (${NAME}Action) -> Unit
     #end
 ) {
-  // TODO UI Rendering
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = "${NAME}")
+                }
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            // TODO Add UI content here
+        }
+    }
 }
 
 #if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
