@@ -20,9 +20,7 @@ class AISettingsConfigurable : Configurable {
                 text("Configure the AI settings for the plugin and manage the AI models, API keys, and other settings")
             }
             row("AI Client") {
-                comboBox(AIClientType.entries, listCellRenderer { value, index, selected ->
-                    text = value.toString()
-                }).bindItem(viewModel::clientType)
+                comboBox(AIClientType.entries, null).bindItem(viewModel::clientType)
             }
 
             // Ollama group - shown when Ollama is selected

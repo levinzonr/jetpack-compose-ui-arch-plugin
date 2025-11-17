@@ -26,9 +26,7 @@ class UISettingsConfigurable : Configurable {
             }
 
             row("UI Library") {
-                comboBox(UILibraryType.entries, listCellRenderer { value, index, selected ->
-                    text = value.toString()
-                }).bindItem(viewModel::uiLibraryType)
+                comboBox(UILibraryType.entries, null).bindItem(viewModel::uiLibraryType)
 
             }
         }
