@@ -56,6 +56,12 @@
                         icon="/icons/action_logo.svg"
                         description="Creates compose architecture files"
                         class="com.levinzonr.arch.jetpackcompose.plugin.features.newcomponent.ComposeComponentAction"/>
+                <action
+                        id="ComposeArch.NewCoordinator"
+                        text="New Coordinator"
+                        icon="/icons/action_logo.svg"
+                        description="Creates a new Coordinator class"
+                        class="com.levinzonr.arch.jetpackcompose.plugin.features.newcoordinator.ComposeCoordinatorAction"/>
             </group>
 
 
