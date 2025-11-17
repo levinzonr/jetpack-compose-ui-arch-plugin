@@ -1,8 +1,5 @@
 package ${PACKAGE_NAME}
 
-#if (${USE_PREVIEW_PARAMETER_PROVIDER} == "true")
-import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-#end
 #if ($NAVIGATION_ENABLED == "true" && $NAV_TYPE == "Kiwi")
 import com.kiwi.navigationcompose.typed.Destination
 #end
