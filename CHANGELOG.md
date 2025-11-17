@@ -6,33 +6,13 @@
 
 ## 1.6.0 - 2025-11-17
 
-
 ### Material3/Material UI Setting
-
-We've added a new UI Library setting that lets you choose between Material and Material3 for all generated templates. This means your new features, components, and screens will automatically use the library you prefer. The plugin remembers your preference and automatically configures everything when you start your IDE, so everything is ready to go from the moment you open your project.
-
-#### Live Templates
-Because Plugin can distinguish between Material Libraries, UI LiveTemplates are now available
 - `scaff` -> This live template will generate a Scaffold with some content and applied Padding to save you some time
-
 - Let me know if you would like see more templates :) 
-
-
-
-#### Screen Template
-New screens now come with a basic UI structure right out of the box:  Scaffold with a TopAppBar showing your feature name, and a Column with proper inner padding already applied. The choice of imports depends on the UI Library Setting
-
-### New AI Client option
-
-OpenAI support is here! You can now choose between Ollama and OpenAI as your AI client when generating features. The OpenAI integration includes all the settings you need - API key, host, model ID, and timeout configuration. 
-
-The settings UI now shows the relevant options based on which AI client you've selected, making it easy to configure exactly what you need.
 
 ### Fixed
 - Fixed an issue when File is selected instead of a Folder when Creating new Files with the Plugin (#39)
 - Fixed an Import issue for PreviewParameterProvider of a Screen Template
-
-
 
 ## 1.5.3 - 2025-05-04
 
@@ -43,7 +23,6 @@ The settings UI now shows the relevant options based on which AI client you've s
 
 ### Added
 - Support for the latest IDE versions
-
 
 ## 1.5.1 - 2025-02-10
 
