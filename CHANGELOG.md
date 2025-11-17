@@ -10,17 +10,9 @@
 ### Material3/Material UI Setting
 
 We've added a new UI Library setting that lets you choose between Material and Material3 for all generated templates. This means your new features, components, and screens will automatically use the library you prefer. The plugin remembers your preference and automatically configures everything when you start your IDE, so everything is ready to go from the moment you open your project.
-
-#### Live Templates
-Because Plugin can distinguish between Material Libraries, UI LiveTemplates are now available
+    
 - `scaff` -> This live template will generate a Scaffold with some content and applied Padding to save you some time
-
-- Let me know if you would like see more templates :) 
-
-
-
-#### Screen Template
-New screens now come with a basic UI structure right out of the box:  Scaffold with a TopAppBar showing your feature name, and a Column with proper inner padding already applied. The choice of imports depends on the UI Library Setting
+- New screens now come with a basic UI structure right out of the box:  Scaffold with a TopAppBar showing your feature name, and a Column with proper inner padding already applied. The choice of imports depends on the UI Library Setting
 
 ### New AI Client option
 
