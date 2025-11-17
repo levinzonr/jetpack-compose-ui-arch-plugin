@@ -1,0 +1,15 @@
+<templateSet group="Compose Material3 Live Templates">
+
+    <template
+        name="scaff" 
+        value="androidx.compose.material3.Scaffold(&#10;topBar = {&#10;    androidx.compose.material3.TopAppBar(&#10;        title = { }&#10;    )&#10;}&#10;) { innerPadding -&gt;&#10;    androidx.compose.foundation.layout.Column(&#10;        verticalArrangement = androidx.compose.foundation.layout.Arrangement.Top,&#10;        horizontalAlignment = androidx.compose.ui.Alignment.Start,&#10;        modifier = androidx.compose.ui.Modifier.padding(innerPadding)&#10;    ) {&#10;        $CURSOR$&#10;    }&#10;}"
+        description="Create Material3 Scaffold with TopAppBar and Column"
+        toReformat="true"
+        toShortenFQNames="true">
+        <variable name="CURSOR" expression="" defaultValue="" alwaysStopAt="true"/>
+        <context>
+            <option name="com.levinzonr.compose.livetemplate.context" value="true"/>
+        </context>
+    </template>
+
+</templateSet>

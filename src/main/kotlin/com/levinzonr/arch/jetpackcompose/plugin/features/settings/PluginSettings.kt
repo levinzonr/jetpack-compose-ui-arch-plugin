@@ -1,122 +1,69 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.settings
 
 import com.intellij.ide.BrowserUtil
+import com.intellij.ide.plugins.PluginManagerCore
+import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.ui.DialogPanel
 import com.intellij.ui.dsl.builder.*
-import com.intellij.ui.layout.listCellRenderer
-import com.levinzonr.arch.jetpackcompose.plugin.dependencies.ProjectDependencies
-import com.levinzonr.arch.jetpackcompose.plugin.features.settings.domain.AIClientType
-import com.levinzonr.arch.jetpackcompose.plugin.features.settings.injection.SettingsViewModelFactory
+import com.levinzonr.arch.jetpackcompose.plugin.core.Links
 import javax.swing.JComponent
 
 class PluginSettings : Configurable {
 
-    private val viewModel: SettingsViewModel = SettingsViewModelFactory.create()
     private lateinit var dialogPanel: DialogPanel
 
     override fun createComponent(): JComponent? {
-        dialogPanel =  panel {
-            group("AI Settings") {
+        val pluginId = PluginId.getId("com.levinzonr.arch.jetpackcompose.plugin")
+        val plugin = PluginManagerCore.getPlugin(pluginId)
+        val pluginVersion = plugin?.version ?: "Unknown"
+        
+        dialogPanel = panel {
+            group("About") {
                 row {
-                    text("Configure the AI settings for the plugin and manage the AI models, API keys, and other settings")
+                    text("Jetpack Compose UI Architecture Plugin")
                 }
-                row("AI Client") {
-                    comboBox(AIClientType.entries, listCellRenderer { value, index, selected ->
-                        text = value.toString()
-                    }).bindItem(viewModel::clientType)
+                row {
+                    text("Version: <b>$pluginVersion</b>")
                 }
-
-                // Ollama group - shown when Ollama is selected
-                group("\uD83E\uDD99 Ollama") {
-                    row {
-                        text(
-                            text = "Ollama is an advanced AI tool that allows users to easily set up and run large " +
-                                "language models locally<br>" +
-                            "<br>In order to use Ollama, you need to have the Ollama CLI installed on your machine. codegemma model is recommended",
-                            maxLineLength = DEFAULT_COMMENT_WIDTH
+                row {
+                    link("⭐ Star on GitHub") {
+                        BrowserUtil.open(Links.GITHUB_STAR)
+                    }
+                    link("📖 Documentation") {
+                        BrowserUtil.open(Links.DOCS)
+                    }
+                    link("🐛 Report Bug") {
+                        BrowserUtil.open(Links.BUG_REPORT)
+                    }
+                    link("💡 Feature Request") {
+                        BrowserUtil.open(Links.FEATURE_REQUEST)
+                    }
+                }
+            }
+            
+            group("Settings") {
+                row {
+                    text("Configure plugin settings using the subsections below:")
+                }
+                row {
+                    link("⚙️ AI Settings") {
+                        ShowSettingsUtil.getInstance().showSettingsDialog(
+                            ProjectManager.getInstance().defaultProject,
+                            AISettingsConfigurable::class.java
                         )
-
-                        link("Install Ollama") {
-                            BrowserUtil.open("https://ollama.ai/")
-                        }
-                    }
-
-                    row("Host") {
-                        textField()
-                            .bindText(viewModel::host)
-                    }
-                    row("Model") {
-                        textField()
-                            .bindText(viewModel::model)
-                    }
-
-                    row("Timeout in seconds") {
-                        intTextField()
-                            .bindIntText(viewModel::timeoutSeconds)
-                    }
-
-                    row {
-                        button(
-                            text = "Test connection (needs to applied first)",
-                        ) {
-                            viewModel.testOllamaConnection()
-                        }
-                        text(text = "")
-                            .bindText(viewModel.ollamaConnectionStatus)
-                    }
+                    }.comment("Configure the AI settings for the plugin and manage the AI models, API keys, and other settings")
                 }
-
-                // OpenAI group - shown when OpenAI is selected
-                group("🤖 OpenAI") {
-
-                    row {
-                        text(
-                            text = "OpenAI provides powerful AI models through their API. You need an API key to use OpenAI services.<br>" +
-                            "<br>Get your API key from the OpenAI platform.",
-                            maxLineLength = DEFAULT_COMMENT_WIDTH
+                row {
+                    link("🎨 UI Settings") {
+                        ShowSettingsUtil.getInstance().showSettingsDialog(
+                            ProjectManager.getInstance().defaultProject,
+                            UISettingsConfigurable::class.java
                         )
-
-                        link("Get API Key") {
-                            BrowserUtil.open("https://platform.openai.com/api-keys")
-                        }
-                    }
-
-                    row("API Key") {
-                        passwordField()
-                            .bindText(viewModel::openaiApiKey)
-                            .comment("API Key Never leaves your IDE")
-                            .align(Align.FILL)
-
-                    }
-
-                    row("Host") {
-                        textField()
-                            .bindText(viewModel::openaiHost)
-                    }
-
-                    row("Model ID") {
-                        textField()
-                            .bindText(viewModel::openaiModelId)
-                    }
-
-                    row("Timeout in seconds") {
-                        intTextField()
-                            .bindIntText(viewModel::openaiTimeoutSeconds)
-                    }
-
-                    row {
-                        button(
-                            text = "Test connection (needs to applied first)",
-                        ) {
-                            viewModel.testOpenAIConnection()
-                        }
-                        text(text = "")
-                            .bindText(viewModel.openaiConnectionStatus)
-                    }
+                    }.comment("Configure UI-related settings for generated templates")
                 }
             }
         }
@@ -125,16 +72,15 @@ class PluginSettings : Configurable {
     }
 
     override fun isModified(): Boolean {
-        return dialogPanel.isModified()
+        return false
     }
 
     override fun apply() {
-        dialogPanel.apply()
-        viewModel.apply()
+        // Parent configurable - children handle their own apply logic
     }
 
     override fun reset() {
-        viewModel.reset()
+        // Parent configurable - children handle their own reset logic
     }
 
     override fun disposeUIResources() {}

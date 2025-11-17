@@ -32,6 +32,16 @@
                 instance="com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings"
                 id="com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings"
                 displayName="Jetpack Compose UI Architecture"/>
+        <applicationConfigurable
+                parentId="com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings"
+                instance="com.levinzonr.arch.jetpackcompose.plugin.features.settings.AISettingsConfigurable"
+                id="com.levinzonr.arch.jetpackcompose.plugin.features.settings.AISettingsConfigurable"
+                displayName="AI Settings"/>
+        <applicationConfigurable
+                parentId="com.levinzonr.arch.jetpackcompose.plugin.features.settings.PluginSettings"
+                instance="com.levinzonr.arch.jetpackcompose.plugin.features.settings.UISettingsConfigurable"
+                id="com.levinzonr.arch.jetpackcompose.plugin.features.settings.UISettingsConfigurable"
+                displayName="UI Settings"/>
     </extensions>
 
     <actions>
@@ -70,8 +80,11 @@
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="com.levinzonr.arch.jetpackcompose.plugin.PluginStartupActivity"/>
         <defaultLiveTemplates file="/liveTemplates/ComposeFoundation.xml"/>
         <defaultLiveTemplates file="/liveTemplates/ComposeUIArch.xml"/>
+        <defaultLiveTemplates file="/liveTemplates/ComposeMaterial.xml"/>
+        <defaultLiveTemplates file="/liveTemplates/ComposeMaterial3.xml"/>
         <liveTemplateContext
                 contextId="com.levinzonr.compose.livetemplate.context"
                 implementation="com.levinzonr.arch.jetpackcompose.plugin.features.livetemplates.TemplatesContext"
