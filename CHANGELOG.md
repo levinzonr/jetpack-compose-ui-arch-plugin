@@ -4,6 +4,10 @@
 
 ## Unreleased
 
+## 1.6.1 - 2026-01-08
+### Added
+- Support for the latest Android Studio/Intellij Version
+
 ## 1.6.0 - 2025-11-17
 
 
