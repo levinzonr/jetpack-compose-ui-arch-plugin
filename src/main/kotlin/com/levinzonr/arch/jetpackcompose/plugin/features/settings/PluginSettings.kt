@@ -1,8 +1,7 @@
 package com.levinzonr.arch.jetpackcompose.plugin.features.settings
 
 import com.intellij.ide.BrowserUtil
-import com.intellij.ide.plugins.PluginManagerCore
-import com.intellij.openapi.extensions.PluginId
+import com.intellij.ide.plugins.cl.PluginAwareClassLoader
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.project.Project
@@ -17,9 +16,10 @@ class PluginSettings : Configurable {
     private lateinit var dialogPanel: DialogPanel
 
     override fun createComponent(): JComponent? {
-        val pluginId = PluginId.getId("com.levinzonr.arch.jetpackcompose.plugin")
-        val plugin = PluginManagerCore.getPlugin(pluginId)
-        val pluginVersion = plugin?.version ?: "Unknown"
+        val pluginVersion = (PluginSettings::class.java.classLoader as? PluginAwareClassLoader)
+            ?.pluginDescriptor
+            ?.version
+            ?: "Unknown"
         
         dialogPanel = panel {
             group("About") {
