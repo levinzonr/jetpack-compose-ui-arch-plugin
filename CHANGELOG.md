@@ -4,6 +4,11 @@
 
 ## Unreleased
 
+## 1.6.3 - 2026-06-09
+
+### Fixed
+- Replaced internal `PluginManagerCore.getPlugin` API usage with `PluginAwareClassLoader` to resolve JetBrains Marketplace verifier violation
+
 ## 1.6.2 - 2026-06-06
 
 ### Added
